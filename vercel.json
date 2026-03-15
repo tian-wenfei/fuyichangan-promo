@@ -1,0 +1,14 @@
+{
+  "name": "fuyichangan-promo",
+  "buildCommand": null,
+  "devCommand": null,
+  "installCommand": null,
+  "outputDirectory": ".",
+  "framework": null,
+  "rewrites": [
+    {
+      "source": "/",
+      "destination": "/new-promo.html"
+    }
+  ]
+}
