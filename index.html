@@ -668,6 +668,191 @@
             transform: translateY(-8px) scale(1.1);
         }
         
+        /* 失踪儿童滚动区域 */
+        .missing-children-section {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            padding: 40px 0;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .missing-children-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #ff6b6b, #ffd93d, #6bcb77);
+        }
+        
+        .missing-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .missing-header h2 {
+            color: #fff;
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .missing-header h2 i {
+            color: #ff6b6b;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+        }
+        
+        .missing-header p {
+            color: #aaa;
+            font-size: 0.95rem;
+        }
+        
+        .scroll-container {
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .scroll-container::before,
+        .scroll-container::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 100px;
+            z-index: 2;
+            pointer-events: none;
+        }
+        
+        .scroll-container::before {
+            left: 0;
+            background: linear-gradient(90deg, #1a1a1a 0%, transparent 100%);
+        }
+        
+        .scroll-container::after {
+            right: 0;
+            background: linear-gradient(90deg, transparent 0%, #1a1a1a 100%);
+        }
+        
+        .scroll-track {
+            display: flex;
+            gap: 25px;
+            animation: scroll 30s linear infinite;
+            width: max-content;
+        }
+        
+        .scroll-track:hover {
+            animation-play-state: paused;
+        }
+        
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        
+        .child-card {
+            flex-shrink: 0;
+            width: 220px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .child-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.1);
+            border-color: #ff6b6b;
+            box-shadow: 0 10px 30px rgba(255, 107, 107, 0.2);
+        }
+        
+        .child-photo {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #3a3a3a 0%, #2a2a2a 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .child-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .child-photo .placeholder {
+            font-size: 4rem;
+            color: #555;
+        }
+        
+        .child-status {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #ff6b6b;
+            color: white;
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: bold;
+        }
+        
+        .child-info {
+            padding: 15px;
+        }
+        
+        .child-info h4 {
+            color: #fff;
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+        }
+        
+        .child-info p {
+            color: #aaa;
+            font-size: 0.85rem;
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .child-info p i {
+            color: #ffd93d;
+            font-size: 0.8rem;
+            width: 16px;
+        }
+        
+        .missing-tip {
+            text-align: center;
+            margin-top: 25px;
+            padding: 15px;
+            background: rgba(255, 107, 107, 0.1);
+            border-radius: 8px;
+            border: 1px dashed #ff6b6b;
+        }
+        
+        .missing-tip p {
+            color: #ffd93d;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        
         /* 滚动动画 */
         .fade-in {
             opacity: 0;
@@ -742,6 +927,7 @@
                     <li><a href="#product">产品技术</a></li>
                     <li><a href="#value">核心价值</a></li>
                     <li><a href="#team">项目团队</a></li>
+                    <li><a href="#missing">公益寻人</a></li>
                     <li><a href="#contact">联系我们</a></li>
                 </ul>
             </nav>
@@ -911,6 +1097,174 @@
                 </div>
             </div>
             <p class="team-advisors fade-in">指导老师：李华君 王云鹤 师亚平 李万华 宁国良 时春喜</p>
+        </div>
+    </section>
+
+    <!-- 失踪儿童公益寻人 -->
+    <section class="missing-children-section" id="missing">
+        <div class="container">
+            <div class="missing-header">
+                <h2><i class="fas fa-heart"></i> 公益寻人 <i class="fas fa-heart"></i></h2>
+                <p>每一个孩子都是天使，让我们一起帮助他们回家</p>
+            </div>
+            <div class="scroll-container">
+                <div class="scroll-track">
+                    <!-- 儿童1 -->
+                    <div class="child-card">
+                        <div class="child-photo">
+                            <div class="placeholder"><i class="fas fa-child"></i></div>
+                            <span class="child-status">寻找中</span>
+                        </div>
+                        <div class="child-info">
+                            <h4>小明（化名）</h4>
+                            <p><i class="fas fa-birthday-cake"></i>2015年出生</p>
+                            <p><i class="fas fa-map-marker-alt"></i>陕西省西安市</p>
+                            <p><i class="fas fa-calendar"></i>2023年6月走失</p>
+                        </div>
+                    </div>
+                    <!-- 儿童2 -->
+                    <div class="child-card">
+                        <div class="child-photo">
+                            <div class="placeholder"><i class="fas fa-child"></i></div>
+                            <span class="child-status">寻找中</span>
+                        </div>
+                        <div class="child-info">
+                            <h4>小红（化名）</h4>
+                            <p><i class="fas fa-birthday-cake"></i>2017年出生</p>
+                            <p><i class="fas fa-map-marker-alt"></i>陕西省咸阳市</p>
+                            <p><i class="fas fa-calendar"></i>2023年8月走失</p>
+                        </div>
+                    </div>
+                    <!-- 儿童3 -->
+                    <div class="child-card">
+                        <div class="child-photo">
+                            <div class="placeholder"><i class="fas fa-child"></i></div>
+                            <span class="child-status">寻找中</span>
+                        </div>
+                        <div class="child-info">
+                            <h4>小刚（化名）</h4>
+                            <p><i class="fas fa-birthday-cake"></i>2014年出生</p>
+                            <p><i class="fas fa-map-marker-alt"></i>陕西省宝鸡市</p>
+                            <p><i class="fas fa-calendar"></i>2023年3月走失</p>
+                        </div>
+                    </div>
+                    <!-- 儿童4 -->
+                    <div class="child-card">
+                        <div class="child-photo">
+                            <div class="placeholder"><i class="fas fa-child"></i></div>
+                            <span class="child-status">寻找中</span>
+                        </div>
+                        <div class="child-info">
+                            <h4>小芳（化名）</h4>
+                            <p><i class="fas fa-birthday-cake"></i>2016年出生</p>
+                            <p><i class="fas fa-map-marker-alt"></i>陕西省渭南市</p>
+                            <p><i class="fas fa-calendar"></i>2023年5月走失</p>
+                        </div>
+                    </div>
+                    <!-- 儿童5 -->
+                    <div class="child-card">
+                        <div class="child-photo">
+                            <div class="placeholder"><i class="fas fa-child"></i></div>
+                            <span class="child-status">寻找中</span>
+                        </div>
+                        <div class="child-info">
+                            <h4>小强（化名）</h4>
+                            <p><i class="fas fa-birthday-cake"></i>2013年出生</p>
+                            <p><i class="fas fa-map-marker-alt"></i>陕西省延安市</p>
+                            <p><i class="fas fa-calendar"></i>2023年7月走失</p>
+                        </div>
+                    </div>
+                    <!-- 儿童6 -->
+                    <div class="child-card">
+                        <div class="child-photo">
+                            <div class="placeholder"><i class="fas fa-child"></i></div>
+                            <span class="child-status">寻找中</span>
+                        </div>
+                        <div class="child-info">
+                            <h4>小丽（化名）</h4>
+                            <p><i class="fas fa-birthday-cake"></i>2018年出生</p>
+                            <p><i class="fas fa-map-marker-alt"></i>陕西省汉中市</p>
+                            <p><i class="fas fa-calendar"></i>2023年9月走失</p>
+                        </div>
+                    </div>
+                    <!-- 复制一份实现无缝滚动 -->
+                    <div class="child-card">
+                        <div class="child-photo">
+                            <div class="placeholder"><i class="fas fa-child"></i></div>
+                            <span class="child-status">寻找中</span>
+                        </div>
+                        <div class="child-info">
+                            <h4>小明（化名）</h4>
+                            <p><i class="fas fa-birthday-cake"></i>2015年出生</p>
+                            <p><i class="fas fa-map-marker-alt"></i>陕西省西安市</p>
+                            <p><i class="fas fa-calendar"></i>2023年6月走失</p>
+                        </div>
+                    </div>
+                    <div class="child-card">
+                        <div class="child-photo">
+                            <div class="placeholder"><i class="fas fa-child"></i></div>
+                            <span class="child-status">寻找中</span>
+                        </div>
+                        <div class="child-info">
+                            <h4>小红（化名）</h4>
+                            <p><i class="fas fa-birthday-cake"></i>2017年出生</p>
+                            <p><i class="fas fa-map-marker-alt"></i>陕西省咸阳市</p>
+                            <p><i class="fas fa-calendar"></i>2023年8月走失</p>
+                        </div>
+                    </div>
+                    <div class="child-card">
+                        <div class="child-photo">
+                            <div class="placeholder"><i class="fas fa-child"></i></div>
+                            <span class="child-status">寻找中</span>
+                        </div>
+                        <div class="child-info">
+                            <h4>小刚（化名）</h4>
+                            <p><i class="fas fa-birthday-cake"></i>2014年出生</p>
+                            <p><i class="fas fa-map-marker-alt"></i>陕西省宝鸡市</p>
+                            <p><i class="fas fa-calendar"></i>2023年3月走失</p>
+                        </div>
+                    </div>
+                    <div class="child-card">
+                        <div class="child-photo">
+                            <div class="placeholder"><i class="fas fa-child"></i></div>
+                            <span class="child-status">寻找中</span>
+                        </div>
+                        <div class="child-info">
+                            <h4>小芳（化名）</h4>
+                            <p><i class="fas fa-birthday-cake"></i>2016年出生</p>
+                            <p><i class="fas fa-map-marker-alt"></i>陕西省渭南市</p>
+                            <p><i class="fas fa-calendar"></i>2023年5月走失</p>
+                        </div>
+                    </div>
+                    <div class="child-card">
+                        <div class="child-photo">
+                            <div class="placeholder"><i class="fas fa-child"></i></div>
+                            <span class="child-status">寻找中</span>
+                        </div>
+                        <div class="child-info">
+                            <h4>小强（化名）</h4>
+                            <p><i class="fas fa-birthday-cake"></i>2013年出生</p>
+                            <p><i class="fas fa-map-marker-alt"></i>陕西省延安市</p>
+                            <p><i class="fas fa-calendar"></i>2023年7月走失</p>
+                        </div>
+                    </div>
+                    <div class="child-card">
+                        <div class="child-photo">
+                            <div class="placeholder"><i class="fas fa-child"></i></div>
+                            <span class="child-status">寻找中</span>
+                        </div>
+                        <div class="child-info">
+                            <h4>小丽（化名）</h4>
+                            <p><i class="fas fa-birthday-cake"></i>2018年出生</p>
+                            <p><i class="fas fa-map-marker-alt"></i>陕西省汉中市</p>
+                            <p><i class="fas fa-calendar"></i>2023年9月走失</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="missing-tip">
+                <p><i class="fas fa-info-circle"></i> 如有线索请拨打 110 或联系当地公安机关</p>
+            </div>
         </div>
     </section>
 
