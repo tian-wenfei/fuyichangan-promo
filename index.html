@@ -49,100 +49,165 @@
             padding: 0 20px;
         }
         
-        /* 导航栏 */
+        /* 导航栏 - 美化版 */
         header {
-            background-color: rgba(255, 255, 255, 0.95);
-            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(248, 245, 240, 0.98) 100%);
+            box-shadow: 0 4px 20px rgba(45, 80, 22, 0.1);
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            backdrop-filter: blur(10px);
         }
-        
+
         header.scrolled {
-            background-color: rgba(255, 255, 255, 0.98);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.99) 0%, rgba(255, 255, 255, 0.99) 100%);
+            box-shadow: 0 6px 30px rgba(45, 80, 22, 0.15);
         }
-        
+
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 0;
-            transition: padding 0.3s ease;
+            padding: 18px 0;
+            transition: padding 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
-        
+
         header.scrolled nav {
             padding: 12px 0;
         }
-        
+
         .logo {
             display: flex;
             align-items: center;
-            font-weight: bold;
-            font-size: 1.5rem;
+            font-weight: 700;
+            font-size: 1.6rem;
             color: var(--primary-color);
+            text-decoration: none;
+            transition: all 0.3s ease;
         }
-        
+
+        .logo:hover {
+            transform: translateY(-2px);
+        }
+
         .logo img {
-            width: 45px;
-            height: 45px;
-            margin-right: 12px;
+            width: 48px;
+            height: 48px;
+            margin-right: 14px;
             border-radius: 50%;
-            transition: transform 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 4px 12px rgba(45, 80, 22, 0.2);
         }
-        
+
         .logo:hover img {
-            transform: scale(1.1) rotate(5deg);
+            transform: scale(1.15) rotate(8deg);
+            box-shadow: 0 6px 20px rgba(45, 80, 22, 0.3);
         }
-        
+
         .logo span {
             color: var(--secondary-color);
+            position: relative;
         }
-        
+
+        .logo span::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: var(--gradient-secondary);
+            transition: width 0.3s ease;
+            border-radius: 2px;
+        }
+
+        .logo:hover span::after {
+            width: 100%;
+        }
+
         .nav-links {
             display: flex;
             list-style: none;
-            gap: 30px;
+            gap: 35px;
         }
-        
+
         .nav-links a {
             text-decoration: none;
             color: var(--dark-color);
             font-weight: 500;
-            transition: color 0.3s;
+            font-size: 1rem;
+            transition: all 0.3s ease;
             position: relative;
+            padding: 8px 0;
         }
-        
+
+        .nav-links a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -10px;
+            right: -10px;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(212, 160, 23, 0.1) 0%, rgba(45, 80, 22, 0.05) 100%);
+            border-radius: 20px;
+            opacity: 0;
+            transform: scale(0.8);
+            transition: all 0.3s ease;
+            z-index: -1;
+        }
+
         .nav-links a::after {
             content: '';
             position: absolute;
-            bottom: -5px;
-            left: 0;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
             width: 0;
-            height: 2px;
-            background-color: var(--secondary-color);
-            transition: width 0.3s;
+            height: 3px;
+            background: var(--gradient-secondary);
+            transition: all 0.3s ease;
+            border-radius: 2px;
         }
-        
+
         .nav-links a:hover,
         .nav-links a.active {
             color: var(--primary-color);
         }
-        
+
+        .nav-links a:hover::before,
+        .nav-links a.active::before {
+            opacity: 1;
+            transform: scale(1);
+        }
+
         .nav-links a:hover::after,
         .nav-links a.active::after {
-            width: 100%;
+            width: 60%;
         }
-        
+
         .mobile-menu-btn {
             display: none;
-            background: none;
+            background: linear-gradient(135deg, var(--primary-color) 0%, #3e7420 100%);
             border: none;
-            font-size: 1.5rem;
-            color: var(--primary-color);
+            width: 45px;
+            height: 45px;
+            border-radius: 12px;
+            font-size: 1.3rem;
+            color: white;
             cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(45, 80, 22, 0.3);
+        }
+
+        .mobile-menu-btn:hover {
+            transform: translateY(-2px) scale(1.05);
+            box-shadow: 0 6px 20px rgba(45, 80, 22, 0.4);
+        }
+
+        .mobile-menu-btn:active {
+            transform: translateY(0) scale(0.98);
         }
         
         /* 主横幅 - 优化背景加载 */
@@ -246,6 +311,120 @@
         
         .cta-button:hover::before {
             left: 100%;
+        }
+
+        .video-play-btn {
+            position: absolute;
+            bottom: 215px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90px;
+            height: 90px;
+            background: var(--secondary-color);
+            opacity: 0.7;
+            border-radius: 50%;
+            border: 3px solid rgba(255, 255, 255, 0.6);
+            color: white;
+            font-size: 1.8rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(212, 160, 23, 0.5);
+        }
+
+        .video-play-btn::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: var(--secondary-color);
+            opacity: 0.6;
+            animation: pulse-wave 2s ease-out infinite;
+        }
+
+        .video-play-btn i {
+            position: relative;
+            z-index: 2;
+            margin-left: 4px;
+        }
+
+        @keyframes pulse-wave {
+            0% {
+                transform: scale(1);
+                opacity: 0.6;
+            }
+            100% {
+                transform: scale(2);
+                opacity: 0;
+            }
+        }
+
+        .video-play-btn:hover {
+            transform: translateX(-50%) scale(1.1);
+            box-shadow: 0 6px 30px rgba(212, 160, 23, 0.7);
+        }
+
+        .video-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 9999;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .video-modal.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .video-modal-content {
+            position: relative;
+            width: 90%;
+            max-width: 900px;
+            background: #000;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        }
+
+        .video-modal-content video {
+            width: 100%;
+            display: block;
+        }
+
+        .video-modal-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            width: 40px;
+            height: 40px;
+            background: rgba(0, 0, 0, 0.7);
+            border: none;
+            border-radius: 50%;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
+
+        .video-modal-close:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: scale(1.1);
         }
         
         /* 通用区块 */
@@ -412,7 +591,7 @@
         /* 核心价值 */
         .values-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(3, 33.33%);
             gap: 40px;
         }
         
@@ -478,7 +657,7 @@
         
         .stats-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(4, 25%);
             gap: 40px;
         }
         
@@ -492,7 +671,7 @@
         /* 团队 */
         .team-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(3, 33.33%);
             gap: 30px;
         }
         
@@ -580,7 +759,7 @@
         
         .footer-content {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(3, 33.33%);
             gap: 40px;
             margin-bottom: 50px;
         }
@@ -594,6 +773,11 @@
         .footer-section p {
             margin-bottom: 10px;
             line-height: 1.8;
+            max-width: 90%;
+        }
+
+        .footer-section:first-child p {
+            max-width: 85%;
         }
         
         .footer-section i {
@@ -602,18 +786,18 @@
         }
         
         .qr-code {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+            border-radius: 12px;
             border: 3px solid var(--secondary-color);
             box-shadow: 0 4px 15px rgba(0,0,0,0.2);
             overflow: hidden;
-            margin: 15px auto 0;
             transition: transform 0.3s ease;
             background: white;
             display: flex;
             align-items: center;
             justify-content: center;
+            flex-shrink: 0;
         }
         
         .qr-code:hover {
@@ -634,7 +818,27 @@
             font-size: 0.9rem;
             color: #aaa;
         }
-        
+
+        .qr-wrapper {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .qr-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .qr-item p {
+            font-size: 0.85rem;
+            color: #ccc;
+            margin: 0;
+        }
+
         /* 返回顶部 */
         .back-to-top {
             position: fixed;
@@ -885,28 +1089,75 @@
                 gap: 15px;
                 min-width: 180px;
             }
-            
+
             .nav-links.mobile-active {
                 display: flex;
             }
-            
+
             .mobile-menu-btn {
                 display: block;
             }
-            
+
             .section {
                 padding: 60px 0;
             }
-            
+
             .back-to-top {
                 bottom: 20px;
                 right: 20px;
                 width: 45px;
                 height: 45px;
             }
-            
+
             .product-image img {
                 height: 280px;
+            }
+
+            .values-grid,
+            .stats-grid,
+            .team-grid {
+                grid-template-columns: 100%;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .values-grid {
+                grid-template-columns: repeat(2, 50%);
+            }
+
+            .team-grid {
+                grid-template-columns: repeat(2, 50%);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .footer-content {
+                grid-template-columns: 100%;
+                text-align: center;
+            }
+
+            .footer-section p {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 8px;
+            }
+
+            .footer-section i {
+                flex-shrink: 0;
+            }
+
+            .qr-code {
+                width: 80px;
+                height: 80px;
+            }
+
+            .qr-wrapper {
+                gap: 10px;
+            }
+
+            .qr-item p {
+                font-size: 0.75rem;
             }
         }
     </style>
@@ -940,7 +1191,10 @@
             <h1>茯兴硒乡：富硒茯茶<br>金花智控设备</h1>
             <p>AI视觉识别 + 5G物联网 + 红外光谱技术，助力传统茶产业向智能化、精细化、高效化转型升级</p>
             <p class="subtitle">参赛赛道：现代农业与食品科技赛道 | 参赛团队：茯忆长安（已创业）</p>
-            <a href="#product" class="cta-button">了解智能发花机</a>
+            <a href="#product" class="cta-button" onclick="openVideoModalWithSrc('模型展示.mp4'); return false;">了解智能发花机</a>
+            <button class="video-play-btn" onclick="openVideoModal()">
+                <i class="fas fa-play"></i>
+            </button>
         </div>
     </section>
 
@@ -1335,7 +1589,7 @@
                 <div class="footer-section">
                     <h3>茯忆长安</h3>
                     <p>富硒茯茶金花智控设备助农增收新引擎</p>
-                    <p>致力于成为茶行业智能化革命的重要参<br/>与者，以科技创新守护中国茶文化的世<br/>界竞争力。</p>
+                    <p>致力于成为茶行业智能化革命的重要参与者，以科技创新守护中国茶文化的世界竞争力。</p>
                 </div>
                 <div class="footer-section">
                     <h3>联系方式</h3>
@@ -1345,12 +1599,37 @@
                 </div>
                 <div class="footer-section">
                     <h3>关注我们</h3>
-                    <div class="qr-code">
-                        <img src="douyin.png" 
-                             alt="抖音二维码" 
-                             loading="lazy" 
-                             decoding="async"
-                             onerror="this.style.display='none'">
+                    <div class="qr-wrapper">
+                        <div class="qr-item">
+                            <div class="qr-code">
+                                <img src="douyin.png"
+                                     alt="抖音二维码"
+                                     loading="lazy"
+                                     decoding="async"
+                                     onerror="this.style.display='none'">
+                            </div>
+                            <p>抖音二维码</p>
+                        </div>
+                        <div class="qr-item">
+                            <div class="qr-code">
+                                <img src="茶叶追溯系统.jpg"
+                                     alt="茶叶追溯系统"
+                                     loading="lazy"
+                                     decoding="async"
+                                     onerror="this.style.display='none'">
+                            </div>
+                            <p>茶叶追溯系统</p>
+                        </div>
+                        <div class="qr-item">
+                            <div class="qr-code">
+                                <img src="微信小程序.jpg"
+                                     alt="微信小程序"
+                                     loading="lazy"
+                                     decoding="async"
+                                     onerror="this.style.display='none'">
+                            </div>
+                            <p>微信小程序</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1506,6 +1785,55 @@
         document.addEventListener('DOMContentLoaded', () => {
             handleScrollAnimation();
             animateCounters();
+        });
+    </script>
+
+    <div class="video-modal" id="videoModal">
+        <div class="video-modal-content">
+            <button class="video-modal-close" onclick="closeVideoModal()">
+                <i class="fas fa-times"></i>
+            </button>
+            <video id="promoVideo" controls>
+                <source src="宣传视频.mp4" type="video/mp4">
+                您的浏览器不支持视频播放
+            </video>
+        </div>
+    </div>
+
+    <script>
+        function openVideoModal() {
+            const modal = document.getElementById('videoModal');
+            const video = document.getElementById('promoVideo');
+            modal.classList.add('active');
+            video.play();
+        }
+
+        function openVideoModalWithSrc(src) {
+            const modal = document.getElementById('videoModal');
+            const video = document.getElementById('promoVideo');
+            video.src = src;
+            modal.classList.add('active');
+            video.play();
+        }
+
+        function closeVideoModal() {
+            const modal = document.getElementById('videoModal');
+            const video = document.getElementById('promoVideo');
+            video.pause();
+            video.currentTime = 0;
+            modal.classList.remove('active');
+        }
+
+        document.getElementById('videoModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeVideoModal();
+            }
+        });
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeVideoModal();
+            }
         });
     </script>
 </body>
