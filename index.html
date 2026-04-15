@@ -9,6 +9,8 @@
     <!-- 预连接外部资源 -->
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
     <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://p*.img.cctvpic.com" crossorigin>
+    <link rel="dns-prefetch" href="https://p.img.cctvpic.com">
     
     <!-- 异步加载 Font Awesome -->
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -1194,7 +1196,7 @@
         <div class="container">
             <nav>
                 <a href="#home" class="logo">
-                    <img src="logo.png" alt="茯忆长安" width="45" height="45">
+                    <img src="logo.png" alt="茯忆长安" width="45" height="45" onerror="this.style.display='none'">
                     <span>茯忆<span>长安</span></span>
                 </a>
                 <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="菜单">
@@ -1684,6 +1686,9 @@
         bgImage.onload = function() {
             hero.style.setProperty('--hero-bg', `url('home.png')`);
         };
+        bgImage.onerror = function() {
+            hero.style.background = 'linear-gradient(135deg, #2d5016 0%, #1a1a1a 100%)';
+        };
         bgImage.src = 'home.png';
 
         // 移动端菜单切换
@@ -1826,7 +1831,7 @@
             <button class="video-modal-close" onclick="closeVideoModal()">
                 <i class="fas fa-times"></i>
             </button>
-            <video id="promoVideo" controls playsinline webkit-playsinline x-webkit-airplay="allow" x5-video-player-type="h5" x5-video-player-fullscreen="true" x5-video-ignore-meta="true" disablePictureInPicture preload="auto" muted>
+            <video id="promoVideo" controls playsinline webkit-playsinline x-webkit-airplay="allow" x5-video-player-type="h5" x5-video-player-fullscreen="true" x5-video-ignore-meta="true" disablePictureInPicture muted>
                 <source src="宣传视频.mp4" type="video/mp4">
                 您的浏览器不支持视频播放
             </video>
