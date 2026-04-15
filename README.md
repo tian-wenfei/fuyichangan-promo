@@ -14,9 +14,9 @@
 - ♻️ 茶叶梯级利用与处置一体化系统
 - 🔧 "四管"服务模式：管技术 + 管质量 + 管维修 + 管文创
 
-## 🚀 快速部署到 Vercel
+## 🚀 快速部署到 Netlify
 
-### 方式一：通过 GitHub + Vercel 官网（推荐）
+### 方式一：通过 GitHub + Netlify 官网（推荐）
 
 1. **创建 GitHub 仓库**
    - 访问 [github.com](https://github.com/) 创建新仓库
@@ -28,15 +28,15 @@
    - `logo.png`
    - `home.png`
    - `智能化发花装置2.0.jpg`
-   - `vercel.json`
+   - `netlify.toml`（Netlify 配置文件，可选）
 
-3. **部署到 Vercel**
-   - 访问 [vercel.com](https://vercel.com/)
+3. **部署到 Netlify**
+   - 访问 [netlify.com](https://netlify.com/)
    - 使用 GitHub 账号登录
    - 导入仓库并点击 Deploy
 
 4. **访问网站**
-   - 网站地址：`https://fuyichangan-promo.vercel.app`
+   - 网站地址：`https://fuyichangan-promo.netlify.app`
 
 ## 📁 文件说明
 
@@ -47,7 +47,7 @@
 ├── home.png                ← 背景图片
 ├── ai.jpg                  ← AI 相关图片（可选）
 ├── 智能化发花装置2.0.jpg    ← 产品图片
-├── vercel.json             ← Vercel 配置文件
+├── netlify.toml            ← Netlify 配置文件（可选）
 └── README.md               ← 本文件
 ```
 
