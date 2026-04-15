@@ -1818,6 +1818,10 @@
         document.addEventListener('DOMContentLoaded', () => {
             handleScrollAnimation();
             animateCounters();
+            setTimeout(() => {
+                const video = document.getElementById('promoVideo');
+                video.preload = 'auto';
+            }, 3000);
         });
     </script>
 
@@ -1826,7 +1830,7 @@
             <button class="video-modal-close" onclick="closeVideoModal()">
                 <i class="fas fa-times"></i>
             </button>
-            <video id="promoVideo" controls>
+            <video id="promoVideo" preload="metadata" controls>
                 <source src="宣传视频.mp4" type="video/mp4">
                 您的浏览器不支持视频播放
             </video>
@@ -1837,6 +1841,8 @@
         function openVideoModal() {
             const modal = document.getElementById('videoModal');
             const video = document.getElementById('promoVideo');
+            video.src = '宣传视频.mp4';
+            video.currentTime = 0;
             modal.classList.add('active');
             video.play();
         }
