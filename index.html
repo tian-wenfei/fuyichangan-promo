@@ -49,100 +49,165 @@
             padding: 0 20px;
         }
         
-        /* 导航栏 */
+        /* 导航栏 - 美化版 */
         header {
-            background-color: rgba(255, 255, 255, 0.95);
-            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(248, 245, 240, 0.98) 100%);
+            box-shadow: 0 4px 20px rgba(45, 80, 22, 0.1);
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            backdrop-filter: blur(10px);
         }
-        
+
         header.scrolled {
-            background-color: rgba(255, 255, 255, 0.98);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.99) 0%, rgba(255, 255, 255, 0.99) 100%);
+            box-shadow: 0 6px 30px rgba(45, 80, 22, 0.15);
         }
-        
+
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 0;
-            transition: padding 0.3s ease;
+            padding: 18px 0;
+            transition: padding 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
-        
+
         header.scrolled nav {
             padding: 12px 0;
         }
-        
+
         .logo {
             display: flex;
             align-items: center;
-            font-weight: bold;
-            font-size: 1.5rem;
+            font-weight: 700;
+            font-size: 1.6rem;
             color: var(--primary-color);
+            text-decoration: none;
+            transition: all 0.3s ease;
         }
-        
+
+        .logo:hover {
+            transform: translateY(-2px);
+        }
+
         .logo img {
-            width: 45px;
-            height: 45px;
-            margin-right: 12px;
+            width: 48px;
+            height: 48px;
+            margin-right: 14px;
             border-radius: 50%;
-            transition: transform 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 4px 12px rgba(45, 80, 22, 0.2);
         }
-        
+
         .logo:hover img {
-            transform: scale(1.1) rotate(5deg);
+            transform: scale(1.15) rotate(8deg);
+            box-shadow: 0 6px 20px rgba(45, 80, 22, 0.3);
         }
-        
+
         .logo span {
             color: var(--secondary-color);
+            position: relative;
         }
-        
+
+        .logo span::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: var(--gradient-secondary);
+            transition: width 0.3s ease;
+            border-radius: 2px;
+        }
+
+        .logo:hover span::after {
+            width: 100%;
+        }
+
         .nav-links {
             display: flex;
             list-style: none;
-            gap: 30px;
+            gap: 35px;
         }
-        
+
         .nav-links a {
             text-decoration: none;
             color: var(--dark-color);
             font-weight: 500;
-            transition: color 0.3s;
+            font-size: 1rem;
+            transition: all 0.3s ease;
             position: relative;
+            padding: 8px 0;
         }
-        
+
+        .nav-links a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -10px;
+            right: -10px;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(212, 160, 23, 0.1) 0%, rgba(45, 80, 22, 0.05) 100%);
+            border-radius: 20px;
+            opacity: 0;
+            transform: scale(0.8);
+            transition: all 0.3s ease;
+            z-index: -1;
+        }
+
         .nav-links a::after {
             content: '';
             position: absolute;
-            bottom: -5px;
-            left: 0;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
             width: 0;
-            height: 2px;
-            background-color: var(--secondary-color);
-            transition: width 0.3s;
+            height: 3px;
+            background: var(--gradient-secondary);
+            transition: all 0.3s ease;
+            border-radius: 2px;
         }
-        
+
         .nav-links a:hover,
         .nav-links a.active {
             color: var(--primary-color);
         }
-        
+
+        .nav-links a:hover::before,
+        .nav-links a.active::before {
+            opacity: 1;
+            transform: scale(1);
+        }
+
         .nav-links a:hover::after,
         .nav-links a.active::after {
-            width: 100%;
+            width: 60%;
         }
-        
+
         .mobile-menu-btn {
             display: none;
-            background: none;
+            background: linear-gradient(135deg, var(--primary-color) 0%, #3e7420 100%);
             border: none;
-            font-size: 1.5rem;
-            color: var(--primary-color);
+            width: 45px;
+            height: 45px;
+            border-radius: 12px;
+            font-size: 1.3rem;
+            color: white;
             cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(45, 80, 22, 0.3);
+        }
+
+        .mobile-menu-btn:hover {
+            transform: translateY(-2px) scale(1.05);
+            box-shadow: 0 6px 20px rgba(45, 80, 22, 0.4);
+        }
+
+        .mobile-menu-btn:active {
+            transform: translateY(0) scale(0.98);
         }
         
         /* 主横幅 - 优化背景加载 */
@@ -250,33 +315,84 @@
 
         .video-play-btn {
             position: absolute;
-            bottom: 180px;
+            bottom: 215px;
             left: 50%;
             transform: translateX(-50%);
-            width: 70px;
-            height: 70px;
+            width: 90px;
+            height: 90px;
             background: linear-gradient(135deg, var(--secondary-color) 0%, #f5a623 100%);
             opacity: 0.85;
             border-radius: 50%;
             border: none;
             color: white;
-            font-size: 1.5rem;
+            font-size: 2rem;
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
             z-index: 10;
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            box-shadow: 0 6px 25px rgba(212, 160, 23, 0.5);
+            box-shadow: 0 6px 25px rgba(212, 160, 23, 0.5),
+                        0 0 40px rgba(212, 160, 23, 0.2);
+        }
+
+        .video-play-btn::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--secondary-color) 0%, #f5a623 100%);
+            opacity: 0.9;
+            animation: pulse-wave 1.8s ease-out infinite;
         }
 
         .video-play-btn i {
+            position: relative;
+            z-index: 2;
             margin-left: 4px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        @keyframes pulse-wave {
+            0% {
+                transform: scale(1);
+                opacity: 0.9;
+            }
+            50% {
+                opacity: 0.5;
+            }
+            100% {
+                transform: scale(2.2);
+                opacity: 0;
+            }
+        }
+
+        @keyframes btn-glow {
+            0%, 100% {
+                box-shadow: 0 6px 25px rgba(212, 160, 23, 0.5),
+                            0 0 40px rgba(212, 160, 23, 0.2);
+            }
+            50% {
+                box-shadow: 0 8px 35px rgba(212, 160, 23, 0.7),
+                            0 0 60px rgba(212, 160, 23, 0.4);
+            }
         }
 
         .video-play-btn:hover {
-            transform: translateX(-50%) scale(1.1);
+            transform: translateX(-50%) scale(1.15);
             opacity: 1;
+            box-shadow: 0 8px 35px rgba(212, 160, 23, 0.7),
+                        0 0 60px rgba(212, 160, 23, 0.5);
+            animation: btn-glow 1.5s ease-in-out infinite;
+        }
+
+        .video-play-btn:hover i {
+            transform: scale(1.1);
+        }
+
+        .video-play-btn:active {
+            transform: translateX(-50%) scale(1.05);
         }
 
         .video-modal {
@@ -290,10 +406,13 @@
             z-index: 9999;
             justify-content: center;
             align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
         }
 
         .video-modal.active {
             display: flex;
+            opacity: 1;
         }
 
         .video-modal-content {
@@ -303,6 +422,7 @@
             background: #000;
             border-radius: 12px;
             overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
         }
 
         .video-modal-content video {
@@ -325,13 +445,15 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            transition: all 0.3s ease;
             z-index: 10;
         }
 
         .video-modal-close:hover {
             background: rgba(255, 255, 255, 0.2);
+            transform: scale(1.1);
         }
-
+        
         /* 通用区块 */
         .section {
             padding: 100px 0;
@@ -496,7 +618,7 @@
         /* 核心价值 */
         .values-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
             gap: 40px;
         }
         
@@ -562,7 +684,7 @@
         
         .stats-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(4, 1fr);
             gap: 40px;
         }
         
@@ -576,7 +698,7 @@
         /* 团队 */
         .team-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
             gap: 30px;
         }
         
@@ -664,7 +786,7 @@
         
         .footer-content {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
             gap: 40px;
             margin-bottom: 50px;
         }
@@ -678,6 +800,11 @@
         .footer-section p {
             margin-bottom: 10px;
             line-height: 1.8;
+            max-width: 90%;
+        }
+
+        .footer-section:first-child p {
+            max-width: 85%;
         }
         
         .footer-section i {
@@ -686,18 +813,18 @@
         }
         
         .qr-code {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+            border-radius: 12px;
             border: 3px solid var(--secondary-color);
             box-shadow: 0 4px 15px rgba(0,0,0,0.2);
             overflow: hidden;
-            margin: 15px auto 0;
             transition: transform 0.3s ease;
             background: white;
             display: flex;
             align-items: center;
             justify-content: center;
+            flex-shrink: 0;
         }
         
         .qr-code:hover {
@@ -718,7 +845,27 @@
             font-size: 0.9rem;
             color: #aaa;
         }
-        
+
+        .qr-wrapper {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .qr-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .qr-item p {
+            font-size: 0.85rem;
+            color: #ccc;
+            margin: 0;
+        }
+
         /* 返回顶部 */
         .back-to-top {
             position: fixed;
@@ -752,6 +899,192 @@
             transform: translateY(-8px) scale(1.1);
         }
         
+        /* 失踪儿童滚动区域 */
+        .missing-children-section {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            padding: 40px 0;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .missing-children-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #ff6b6b, #ffd93d, #6bcb77);
+        }
+        
+        .missing-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .missing-header h2 {
+            color: #fff;
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .missing-header h2 i {
+            color: #ff6b6b;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+        }
+        
+        .missing-header p {
+            color: #aaa;
+            font-size: 0.95rem;
+        }
+        
+        .scroll-container {
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .scroll-container::before,
+        .scroll-container::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 100px;
+            z-index: 2;
+            pointer-events: none;
+        }
+        
+        .scroll-container::before {
+            left: 0;
+            background: linear-gradient(90deg, #1a1a1a 0%, transparent 100%);
+        }
+        
+        .scroll-container::after {
+            right: 0;
+            background: linear-gradient(90deg, transparent 0%, #1a1a1a 100%);
+        }
+        
+        .scroll-track {
+            display: flex;
+            gap: 25px;
+            animation: scroll 30s linear infinite;
+            width: max-content;
+        }
+        
+        .scroll-track:hover {
+            animation-play-state: paused;
+        }
+        
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        
+        .child-card {
+            flex-shrink: 0;
+            width: 220px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .child-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.1);
+            border-color: #ff6b6b;
+            box-shadow: 0 10px 30px rgba(255, 107, 107, 0.2);
+        }
+        
+        .child-photo {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #3a3a3a 0%, #2a2a2a 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .child-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .child-photo .placeholder {
+            font-size: 4rem;
+            color: #555;
+        }
+        
+        .child-status {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #ff6b6b;
+            color: white;
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            z-index: 1;
+        }
+        
+        .child-info {
+            padding: 15px;
+        }
+        
+        .child-info h4 {
+            color: #fff;
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+        }
+        
+        .child-info p {
+            color: #aaa;
+            font-size: 0.85rem;
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .child-info p i {
+            color: #ffd93d;
+            font-size: 0.8rem;
+            width: 16px;
+        }
+        
+        .missing-tip {
+            text-align: center;
+            margin-top: 25px;
+            padding: 15px;
+            background: rgba(255, 107, 107, 0.1);
+            border-radius: 8px;
+            border: 1px dashed #ff6b6b;
+        }
+        
+        .missing-tip p {
+            color: #ffd93d;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        
         /* 滚动动画 */
         .fade-in {
             opacity: 0;
@@ -783,28 +1116,75 @@
                 gap: 15px;
                 min-width: 180px;
             }
-            
+
             .nav-links.mobile-active {
                 display: flex;
             }
-            
+
             .mobile-menu-btn {
                 display: block;
             }
-            
+
             .section {
                 padding: 60px 0;
             }
-            
+
             .back-to-top {
                 bottom: 20px;
                 right: 20px;
                 width: 45px;
                 height: 45px;
             }
-            
+
             .product-image img {
                 height: 280px;
+            }
+
+            .values-grid,
+            .stats-grid,
+            .team-grid {
+                grid-template-columns: 100%;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .values-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .team-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .footer-content {
+                grid-template-columns: 100%;
+                text-align: center;
+            }
+
+            .footer-section p {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 8px;
+            }
+
+            .footer-section i {
+                flex-shrink: 0;
+            }
+
+            .qr-code {
+                width: 80px;
+                height: 80px;
+            }
+
+            .qr-wrapper {
+                gap: 10px;
+            }
+
+            .qr-item p {
+                font-size: 0.75rem;
             }
         }
     </style>
@@ -826,6 +1206,7 @@
                     <li><a href="#product">产品技术</a></li>
                     <li><a href="#value">核心价值</a></li>
                     <li><a href="#team">项目团队</a></li>
+                    <li><a href="#missing">公益寻人</a></li>
                     <li><a href="#contact">联系我们</a></li>
                 </ul>
             </nav>
@@ -836,8 +1217,8 @@
         <div class="hero-content">
             <h1>茯兴硒乡：富硒茯茶<br>金花智控设备</h1>
             <p>AI视觉识别 + 5G物联网 + 红外光谱技术，助力传统茶产业向智能化、精细化、高效化转型升级</p>
-            <p class="subtitle">参赛赛道：乡村振兴和农村农业现代化 | 参赛团队：茯忆长安（已创业）</p>
-            <a href="#product" class="cta-button">了解智能发花机</a>
+            <p class="subtitle">参赛赛道：现代农业与食品科技赛道 | 参赛团队：茯忆长安（已创业）</p>
+            <a href="#product" class="cta-button" onclick="openVideoModalWithSrc('模型展示.mp4'); return false;">了解智能发花机</a>
             <button class="video-play-btn" onclick="openVideoModal()">
                 <i class="fas fa-play"></i>
             </button>
@@ -848,8 +1229,8 @@
         <div class="container">
             <h2 class="section-title fade-in">项目简介</h2>
             <div class="about-intro fade-in">
-                <p>茯兴硒乡项目聚焦富硒茯茶生产核心环节，针对传统发花工艺依赖经验、质量不稳定、效率低下等痛点，</p>
-                <p>研发出集AI视觉识别、5G物联网和红外光谱技术于一体的智能发花设备，实现茯茶生产过程的精准控制与数字化管理。</p>
+                <p>茯兴硒乡项目聚焦富硒茯茶生产核心环节，针对传统发花工艺依赖经验、质量不稳定、效率低下等痛点，研发出集AI视觉识别、5G物联网和红外光谱技术于一体的智能发花设备，实现茯茶生产过程的精准控制与数字化管理。</p>
+                
             </div>
             <div class="about-cards">
                 <div class="about-card fade-in">
@@ -978,12 +1359,6 @@
                     <p>工程造价</p>
                     <p>负责财务管理与成本控制。通过系统的成本核算与精细化管控。</p>
                 </div>
-                <div class="team-card fade-in delay-1">
-                    <div class="team-avatar"><i class="fas fa-database"></i></div>
-                    <h3>刘谢子鑫</h3>
-                    <p>财务管理</p>
-                    <p>负责财务分析板块，擅长运用专业数据分析支持项目决策。</p>
-                </div>
                 <div class="team-card fade-in delay-2">
                     <div class="team-avatar"><i class="fas fa-code"></i></div>
                     <h3>田文飞</h3>
@@ -996,8 +1371,248 @@
                     <p>土木工程</p>
                     <p>负责项目设备结构设计与施工，确保设备安全、稳定运行。</p>
                 </div>
+                <div class="team-card fade-in delay-3">
+                    <div class="team-avatar"><i class="fas fa-bullhorn"></i></div>
+                    <h3>杨晨曦</h3>
+                    <p>视觉传达设计专业</p>
+                    <p>负责新媒体运营与宣传推广工作，在工作中始终注重将传播实践与社会需求相结合。</p>
+                </div>
             </div>
             <p class="team-advisors fade-in">指导老师：李华君 王云鹤 师亚平 李万华 宁国良 时春喜</p>
+        </div>
+    </section>
+
+    <!-- 失踪儿童公益寻人 -->
+    <section class="missing-children-section" id="missing">
+        <div class="container">
+            <div class="missing-header">
+                <h2><i class="fas fa-heart"></i> 公益寻人 <i class="fas fa-heart"></i></h2>
+                <p>数据来源：公安部儿童失踪信息紧急发布平台 | 每一个孩子都是天使，让我们一起帮助他们回家</p>
+            </div>
+            <div class="scroll-container">
+                <div class="scroll-track">
+                    <!-- 郑泽文 -->
+                    <div class="child-card">
+                        <div class="child-photo">
+                            <img src="https://p2.img.cctvpic.com/apple3g/www/upload/image/20251017/1760673600928053005.jpg" alt="郑泽文照片" loading="lazy">
+                            <span class="child-status">寻找中</span>
+                        </div>
+                        <div class="child-info">
+                            <h4>郑泽文</h4>
+                            <p><i class="fas fa-venus-mars"></i>男 / 12岁</p>
+                            <p><i class="fas fa-ruler-vertical"></i>身高163cm</p>
+                            <p><i class="fas fa-map-marker-alt"></i>甘肃兰州榆中县</p>
+                            <p><i class="fas fa-calendar"></i>2025年10月走失</p>
+                        </div>
+                    </div>
+                    <!-- 董苡柔 -->
+                    <div class="child-card">
+                        <div class="child-photo">
+                            <img src="https://p4.img.cctvpic.com/apple3g/www/upload/image/20240813/1723521609943062874.jpg" alt="董苡柔照片" loading="lazy">
+                            <span class="child-status">寻找中</span>
+                        </div>
+                        <div class="child-info">
+                            <h4>董苡柔（十月）</h4>
+                            <p><i class="fas fa-venus-mars"></i>女 / 2.5岁</p>
+                            <p><i class="fas fa-ruler-vertical"></i>穿粉色衣服</p>
+                            <p><i class="fas fa-map-marker-alt"></i>山西运城芮城县</p>
+                            <p><i class="fas fa-calendar"></i>2024年8月走失</p>
+                        </div>
+                    </div>
+                    <!-- 王宇泽 -->
+                    <div class="child-card">
+                        <div class="child-photo">
+                            <img src="https://p3.img.cctvpic.com/apple3g/www/upload/image/20240611/1718100009840063410.jpg" alt="王宇泽照片" loading="lazy">
+                            <span class="child-status">寻找中</span>
+                        </div>
+                        <div class="child-info">
+                            <h4>王宇泽</h4>
+                            <p><i class="fas fa-venus-mars"></i>男 / 13岁</p>
+                            <p><i class="fas fa-ruler-vertical"></i>身高1.6米</p>
+                            <p><i class="fas fa-map-marker-alt"></i>陕西西安未央区</p>
+                            <p><i class="fas fa-calendar"></i>2024年6月走失</p>
+                        </div>
+                    </div>
+                    <!-- 周依星 -->
+                    <div class="child-card">
+                        <div class="child-photo">
+                            <img src="https://p4.img.cctvpic.com/apple3g/www/upload/image/20240502/1714644009886054374.jpg" alt="周依星照片" loading="lazy">
+                            <span class="child-status">寻找中</span>
+                        </div>
+                        <div class="child-info">
+                            <h4>周依星</h4>
+                            <p><i class="fas fa-venus-mars"></i>女 / 11岁</p>
+                            <p><i class="fas fa-ruler-vertical"></i>身高1.52米</p>
+                            <p><i class="fas fa-map-marker-alt"></i>湖南娄底市</p>
+                            <p><i class="fas fa-calendar"></i>2024年6月走失</p>
+                        </div>
+                    </div>
+                    <!-- 韩广灵 -->
+                    <div class="child-card">
+                        <div class="child-photo">
+                            <img src="https://p1.img.cctvpic.com/apple3g/www/upload/image/20240201/1706716809747095005.jpg" alt="韩广灵照片" loading="lazy">
+                            <span class="child-status">寻找中</span>
+                        </div>
+                        <div class="child-info">
+                            <h4>韩广灵</h4>
+                            <p><i class="fas fa-venus-mars"></i>女 / 12岁</p>
+                            <p><i class="fas fa-ruler-vertical"></i>身高150cm</p>
+                            <p><i class="fas fa-map-marker-alt"></i>吉林松原市</p>
+                            <p><i class="fas fa-calendar"></i>2024年1月走失</p>
+                        </div>
+                    </div>
+                    <!-- 任寅赫 -->
+                    <div class="child-card">
+                        <div class="child-photo">
+                            <img src="https://p4.img.cctvpic.com/apple3g/www/upload/image/20231111/1699632009768076157.jpg" alt="任寅赫照片" loading="lazy">
+                            <span class="child-status">寻找中</span>
+                        </div>
+                        <div class="child-info">
+                            <h4>任寅赫</h4>
+                            <p><i class="fas fa-venus-mars"></i>男 / 13岁</p>
+                            <p><i class="fas fa-ruler-vertical"></i>身高150cm</p>
+                            <p><i class="fas fa-map-marker-alt"></i>河南许昌市</p>
+                            <p><i class="fas fa-calendar"></i>2023年11月走失</p>
+                        </div>
+                    </div>
+                    <!-- 赵麒桦 -->
+                    <div class="child-card">
+                        <div class="child-photo">
+                            <img src="https://p4.img.cctvpic.com/apple3g/www/upload/image/20230702/1688227200642066858.jpg" alt="赵麒桦照片" loading="lazy">
+                            <span class="child-status">寻找中</span>
+                        </div>
+                        <div class="child-info">
+                            <h4>赵麒桦</h4>
+                            <p><i class="fas fa-venus-mars"></i>男 / 8岁</p>
+                            <p><i class="fas fa-ruler-vertical"></i>身高135cm</p>
+                            <p><i class="fas fa-map-marker-alt"></i>海南海口市</p>
+                            <p><i class="fas fa-calendar"></i>2023年7月走失</p>
+                        </div>
+                    </div>
+                    <!-- 余乐 -->
+                    <div class="child-card">
+                        <div class="child-photo">
+                            <img src="https://p4.img.cctvpic.com/apple3g/www/upload/image/20230608/1686153608051067138.jpg" alt="余乐照片" loading="lazy">
+                            <span class="child-status">寻找中</span>
+                        </div>
+                        <div class="child-info">
+                            <h4>余乐</h4>
+                            <p><i class="fas fa-venus-mars"></i>男 / 13岁</p>
+                            <p><i class="fas fa-ruler-vertical"></i>穿红色校服</p>
+                            <p><i class="fas fa-map-marker-alt"></i>云南宣威市</p>
+                            <p><i class="fas fa-calendar"></i>2023年6月走失</p>
+                        </div>
+                    </div>
+                    <!-- 复制一份实现无缝滚动 -->
+                    <div class="child-card">
+                        <div class="child-photo">
+                            <img src="https://p2.img.cctvpic.com/apple3g/www/upload/image/20251017/1760673600928053005.jpg" alt="郑泽文照片" loading="lazy">
+                            <span class="child-status">寻找中</span>
+                        </div>
+                        <div class="child-info">
+                            <h4>郑泽文</h4>
+                            <p><i class="fas fa-venus-mars"></i>男 / 12岁</p>
+                            <p><i class="fas fa-ruler-vertical"></i>身高163cm</p>
+                            <p><i class="fas fa-map-marker-alt"></i>甘肃兰州榆中县</p>
+                            <p><i class="fas fa-calendar"></i>2025年10月走失</p>
+                        </div>
+                    </div>
+                    <div class="child-card">
+                        <div class="child-photo">
+                            <img src="https://p4.img.cctvpic.com/apple3g/www/upload/image/20240813/1723521609943062874.jpg" alt="董苡柔照片" loading="lazy">
+                            <span class="child-status">寻找中</span>
+                        </div>
+                        <div class="child-info">
+                            <h4>董苡柔（十月）</h4>
+                            <p><i class="fas fa-venus-mars"></i>女 / 2.5岁</p>
+                            <p><i class="fas fa-ruler-vertical"></i>穿粉色衣服</p>
+                            <p><i class="fas fa-map-marker-alt"></i>山西运城芮城县</p>
+                            <p><i class="fas fa-calendar"></i>2024年8月走失</p>
+                        </div>
+                    </div>
+                    <div class="child-card">
+                        <div class="child-photo">
+                            <img src="https://p3.img.cctvpic.com/apple3g/www/upload/image/20240611/1718100009840063410.jpg" alt="王宇泽照片" loading="lazy">
+                            <span class="child-status">寻找中</span>
+                        </div>
+                        <div class="child-info">
+                            <h4>王宇泽</h4>
+                            <p><i class="fas fa-venus-mars"></i>男 / 13岁</p>
+                            <p><i class="fas fa-ruler-vertical"></i>身高1.6米</p>
+                            <p><i class="fas fa-map-marker-alt"></i>陕西西安未央区</p>
+                            <p><i class="fas fa-calendar"></i>2024年6月走失</p>
+                        </div>
+                    </div>
+                    <div class="child-card">
+                        <div class="child-photo">
+                            <img src="https://p4.img.cctvpic.com/apple3g/www/upload/image/20240502/1714644009886054374.jpg" alt="周依星照片" loading="lazy">
+                            <span class="child-status">寻找中</span>
+                        </div>
+                        <div class="child-info">
+                            <h4>周依星</h4>
+                            <p><i class="fas fa-venus-mars"></i>女 / 11岁</p>
+                            <p><i class="fas fa-ruler-vertical"></i>身高1.52米</p>
+                            <p><i class="fas fa-map-marker-alt"></i>湖南娄底市</p>
+                            <p><i class="fas fa-calendar"></i>2024年6月走失</p>
+                        </div>
+                    </div>
+                    <div class="child-card">
+                        <div class="child-photo">
+                            <img src="https://p1.img.cctvpic.com/apple3g/www/upload/image/20240201/1706716809747095005.jpg" alt="韩广灵照片" loading="lazy">
+                            <span class="child-status">寻找中</span>
+                        </div>
+                        <div class="child-info">
+                            <h4>韩广灵</h4>
+                            <p><i class="fas fa-venus-mars"></i>女 / 12岁</p>
+                            <p><i class="fas fa-ruler-vertical"></i>身高150cm</p>
+                            <p><i class="fas fa-map-marker-alt"></i>吉林松原市</p>
+                            <p><i class="fas fa-calendar"></i>2024年1月走失</p>
+                        </div>
+                    </div>
+                    <div class="child-card">
+                        <div class="child-photo">
+                            <img src="https://p4.img.cctvpic.com/apple3g/www/upload/image/20231111/1699632009768076157.jpg" alt="任寅赫照片" loading="lazy">
+                            <span class="child-status">寻找中</span>
+                        </div>
+                        <div class="child-info">
+                            <h4>任寅赫</h4>
+                            <p><i class="fas fa-venus-mars"></i>男 / 13岁</p>
+                            <p><i class="fas fa-ruler-vertical"></i>身高150cm</p>
+                            <p><i class="fas fa-map-marker-alt"></i>河南许昌市</p>
+                            <p><i class="fas fa-calendar"></i>2023年11月走失</p>
+                        </div>
+                    </div>
+                    <div class="child-card">
+                        <div class="child-photo">
+                            <img src="https://p4.img.cctvpic.com/apple3g/www/upload/image/20230702/1688227200642066858.jpg" alt="赵麒桦照片" loading="lazy">
+                            <span class="child-status">寻找中</span>
+                        </div>
+                        <div class="child-info">
+                            <h4>赵麒桦</h4>
+                            <p><i class="fas fa-venus-mars"></i>男 / 8岁</p>
+                            <p><i class="fas fa-ruler-vertical"></i>身高135cm</p>
+                            <p><i class="fas fa-map-marker-alt"></i>海南海口市</p>
+                            <p><i class="fas fa-calendar"></i>2023年7月走失</p>
+                        </div>
+                    </div>
+                    <div class="child-card">
+                        <div class="child-photo">
+                            <img src="https://p4.img.cctvpic.com/apple3g/www/upload/image/20230608/1686153608051067138.jpg" alt="余乐照片" loading="lazy">
+                            <span class="child-status">寻找中</span>
+                        </div>
+                        <div class="child-info">
+                            <h4>余乐</h4>
+                            <p><i class="fas fa-venus-mars"></i>男 / 13岁</p>
+                            <p><i class="fas fa-ruler-vertical"></i>穿红色校服</p>
+                            <p><i class="fas fa-map-marker-alt"></i>云南宣威市</p>
+                            <p><i class="fas fa-calendar"></i>2023年6月走失</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="missing-tip">
+                <p><i class="fas fa-info-circle"></i> 数据来源：<a href="https://app.cctv.com/special/cbox/childrenlist/index.html" target="_blank" style="color:#ffd93d;">公安部儿童失踪信息紧急发布平台</a> | 如有线索请拨打 110</p>
+            </div>
         </div>
     </section>
 
@@ -1013,22 +1628,47 @@
                     <h3>联系方式</h3>
                     <p><i class="fas fa-envelope"></i>948979226@qq.com</p>
                     <p><i class="fas fa-phone"></i>+86 15091730188</p>
-                    <p><i class="fas fa-map-marker-alt"></i>陕西省西安市长安区子午大道中段39号西安科技大学高新学院</p>
+                    <p><i class="fas fa-map-marker-alt"></i>陕西省西安市长安区子午大道中段39号</p>
                 </div>
                 <div class="footer-section">
                     <h3>关注我们</h3>
-                    <div class="qr-code">
-                        <img src="douyin.png" 
-                             alt="抖音二维码" 
-                             loading="lazy" 
-                             decoding="async"
-                             onerror="this.style.display='none'">
+                    <div class="qr-wrapper">
+                        <div class="qr-item">
+                            <div class="qr-code">
+                                <img src="douyin.png"
+                                     alt="抖音二维码"
+                                     loading="lazy"
+                                     decoding="async"
+                                     onerror="this.style.display='none'">
+                            </div>
+                            <p>抖音二维码</p>
+                        </div>
+                        <div class="qr-item">
+                            <div class="qr-code">
+                                <img src="茶叶追溯系统.jpg"
+                                     alt="茶叶追溯系统"
+                                     loading="lazy"
+                                     decoding="async"
+                                     onerror="this.style.display='none'">
+                            </div>
+                            <p>茶叶追溯系统</p>
+                        </div>
+                        <div class="qr-item">
+                            <div class="qr-code">
+                                <img src="微信小程序.jpg"
+                                     alt="微信小程序"
+                                     loading="lazy"
+                                     decoding="async"
+                                     onerror="this.style.display='none'">
+                            </div>
+                            <p>微信小程序</p>
+                        </div>
                     </div>
                 </div>
             </div>
             <div class="copyright">
                 <p>&copy; 2026 茯忆长安团队 版权所有</p>
-                <p>挑战杯参赛项目：乡村振兴和农村农业现代化赛道</p>
+                <p>挑战杯参赛项目：现代农业与食品科技赛道</p>
             </div>
         </div>
     </footer>
@@ -1037,49 +1677,8 @@
         <i class="fas fa-arrow-up"></i>
     </button>
 
-    <div class="video-modal" id="videoModal">
-        <div class="video-modal-content">
-            <button class="video-modal-close" onclick="closeVideoModal()">
-                <i class="fas fa-times"></i>
-            </button>
-            <video id="promoVideo" controls playsinline>
-                <source src="宣传视频.mp4" type="video/mp4">
-                您的浏览器不支持视频播放
-            </video>
-        </div>
-    </div>
-
     <script>
-        function openVideoModal() {
-            const modal = document.getElementById('videoModal');
-            const video = document.getElementById('promoVideo');
-            video.src = '宣传视频.mp4';
-            modal.classList.add('active');
-            video.play();
-        }
-
-        function closeVideoModal() {
-            const modal = document.getElementById('videoModal');
-            const video = document.getElementById('promoVideo');
-            video.pause();
-            video.currentTime = 0;
-            modal.classList.remove('active');
-        }
-
-        document.getElementById('videoModal').addEventListener('click', function(e) {
-            if (e.target === this) {
-                closeVideoModal();
-            }
-        });
-
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') {
-                closeVideoModal();
-            }
-        });
-    </script>
-
-    <script>
+        // 异步加载背景图片
         const hero = document.querySelector('.hero');
         const bgImage = new Image();
         bgImage.onload = function() {
@@ -1219,6 +1818,58 @@
         document.addEventListener('DOMContentLoaded', () => {
             handleScrollAnimation();
             animateCounters();
+        });
+    </script>
+
+    <div class="video-modal" id="videoModal">
+        <div class="video-modal-content">
+            <button class="video-modal-close" onclick="closeVideoModal()">
+                <i class="fas fa-times"></i>
+            </button>
+            <video id="promoVideo" controls playsinline webkit-playsinline x-webkit-airplay="allow" x5-video-player-type="h5" x5-video-player-fullscreen="true" x5-video-ignore-meta="true" disablePictureInPicture>
+                <source src="宣传视频.mp4" type="video/mp4">
+                您的浏览器不支持视频播放
+            </video>
+        </div>
+    </div>
+
+    <script>
+        function openVideoModal() {
+            const modal = document.getElementById('videoModal');
+            const video = document.getElementById('promoVideo');
+            video.preload = 'auto';
+            video.bufferedHigh = true;
+            modal.classList.add('active');
+            video.play();
+        }
+
+        function openVideoModalWithSrc(src) {
+            const modal = document.getElementById('videoModal');
+            const video = document.getElementById('promoVideo');
+            video.preload = 'auto';
+            video.src = src;
+            modal.classList.add('active');
+            video.play();
+        }
+
+        function closeVideoModal() {
+            const modal = document.getElementById('videoModal');
+            const video = document.getElementById('promoVideo');
+            video.pause();
+            video.currentTime = 0;
+            modal.classList.remove('active');
+        }
+
+        document.getElementById('videoModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeVideoModal();
+            }
+        });
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeVideoModal();
+            }
         });
     </script>
 </body>
