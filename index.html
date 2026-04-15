@@ -1831,7 +1831,7 @@
             <button class="video-modal-close" onclick="closeVideoModal()">
                 <i class="fas fa-times"></i>
             </button>
-            <video id="promoVideo" controls playsinline webkit-playsinline x-webkit-airplay="allow" x5-video-player-type="h5" x5-video-player-fullscreen="true" x5-video-ignore-meta="true" disablePictureInPicture muted>
+            <video id="promoVideo" controls playsinline webkit-playsinline x-webkit-airplay="allow" x5-video-player-type="h5" x5-video-player-fullscreen="true" x5-video-ignore-meta="true" disablePictureInPicture>
                 <source src="宣传视频.mp4" type="video/mp4">
                 您的浏览器不支持视频播放
             </video>
@@ -1842,11 +1842,9 @@
         function openVideoModal() {
             const modal = document.getElementById('videoModal');
             const video = document.getElementById('promoVideo');
-            if (video.src !== window.location.href + '宣传视频.mp4' && !video.src.endsWith('宣传视频.mp4')) {
+            if (!video.src || video.src !== window.location.href + '宣传视频.mp4') {
                 video.src = '宣传视频.mp4';
-                video.load();
             }
-            video.preload = 'auto';
             modal.classList.add('active');
             video.play().catch(() => {});
         }
@@ -1854,11 +1852,9 @@
         function openVideoModalWithSrc(src) {
             const modal = document.getElementById('videoModal');
             const video = document.getElementById('promoVideo');
-            if (video.src !== window.location.href + src && !video.src.endsWith(src)) {
+            if (!video.src || !video.src.endsWith(src)) {
                 video.src = src;
-                video.load();
             }
-            video.preload = 'auto';
             modal.classList.add('active');
             video.play().catch(() => {});
         }
