@@ -9,7 +9,11 @@
     <!-- 预连接外部资源 -->
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
     <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
-    
+
+    <!-- 预加载关键图片 -->
+    <link rel="preload" href="logo.png" as="image">
+    <link rel="preload" href="home.png" as="image">
+
     <!-- 异步加载 Font Awesome -->
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
@@ -1818,10 +1822,14 @@
         document.addEventListener('DOMContentLoaded', () => {
             handleScrollAnimation();
             animateCounters();
+        });
+
+        // 页面所有资源加载完成后再预加载视频
+        window.addEventListener('load', () => {
             setTimeout(() => {
                 const video = document.getElementById('promoVideo');
                 video.preload = 'auto';
-            }, 3000);
+            }, 1000);
         });
     </script>
 
