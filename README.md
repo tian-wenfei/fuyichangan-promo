@@ -36,7 +36,7 @@
    - 导入仓库并点击 Deploy
 
 4. **访问网站**
-   - 网站地址：`https://fuyichangan-promo.netlify.app`
+   - 网站地址：`https://fuyichangan.netlify.app`
 
 ## 📁 文件说明
 
