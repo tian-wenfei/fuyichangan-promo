@@ -9,6 +9,17 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <meta name="format-detection" content="telephone=no">
+    
+    <!-- 性能优化 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta name="MobileOptimized" content="width">
+    <meta name="HandheldFriendly" content="true">
+    
+    <!-- 资源预加载 -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+    <meta http-equiv="Link" content="<home.png>; rel=prefetch; as=image" http-equiv="Link">
+    
     <link rel="icon" href="logo.png">
     <link rel="apple-touch-icon" href="logo.png">
     
@@ -26,6 +37,9 @@
 
     <!-- 预取产品图片 -->
     <link rel="prefetch" href="2.0发花设备.png" as="image">
+    <link rel="prefetch" href="douyin.png" as="image">
+    <link rel="prefetch" href="微信小程序.jpg" as="image">
+    <link rel="prefetch" href="茶叶追溯系统.jpg" as="image">
 
     <!-- 异步加载 Font Awesome -->
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -235,6 +249,8 @@
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
+            background-attachment: scroll;
+            background-clip: border-box;
             color: white;
             display: flex;
             align-items: center;
@@ -242,6 +258,11 @@
             margin-top: 70px;
             position: relative;
             overflow: hidden;
+            /* 性能优化 */
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            -webkit-transform: translateZ(0);
+            transform: translateZ(0);
         }
         
         .hero::before {
