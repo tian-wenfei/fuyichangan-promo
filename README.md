@@ -26,7 +26,7 @@
    将以下文件上传到仓库：
    - `index.html`
    - `logo.png`
-   - `home.png`
+   - `home.jpg`
    - `智能化发花装置2.0.jpg`
    - `vercel.json`
 
@@ -52,7 +52,7 @@
    将以下文件上传到仓库：
    - `index.html`
    - `logo.png`
-   - `home.png`
+   - `home.jpg`
    - `智能化发花装置2.0.jpg`
    - `netlify.toml`（Netlify 配置文件，可选）
 
@@ -70,7 +70,7 @@
 项目文件夹/
 ├── index.html              ← 主网页文件
 ├── logo.png                ← Logo 图片
-├── home.png                ← 背景图片
+├── home.jpg                ← 背景图片
 ├── ai.jpg                  ← AI 相关图片（可选）
 ├── 智能化发花装置2.0.jpg    ← 产品图片
 ├── netlify.toml            ← Netlify 配置文件（可选）
