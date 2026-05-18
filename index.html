@@ -31,12 +31,14 @@
     <link rel="dns-prefetch" href="https://p3.img.cctvpic.com">
     <link rel="dns-prefetch" href="https://p4.img.cctvpic.com">
 
-    <!-- 预加载关键图片 -->
+    <!-- 最高优先级：首屏关键资源立即加载 -->
     <link rel="preload" href="logo.png" as="image" imagesrcset="logo.png" imagesizes="45x45" fetchpriority="high">
     <link rel="preload" href="home.jpg" as="image" fetchpriority="high">
 
-    <!-- 预取产品图片 -->
-    <link rel="prefetch" href="2.0发花设备.png" as="image">
+    <!-- 次高优先级：产品图片（在首屏下方但重要） -->
+    <link rel="preload" href="2.0发花设备.png" as="image" fetchpriority="high">
+
+    <!-- 低优先级：其他图片后台预取，不阻塞首屏 -->
     <link rel="prefetch" href="douyin.png" as="image">
     <link rel="prefetch" href="微信小程序.jpg" as="image">
     <link rel="prefetch" href="茶叶追溯系统.jpg" as="image">
@@ -1904,7 +1906,7 @@
                         </div>
                         <div class="qr-item">
                             <div class="qr-code">
-                                <img src="茶叶追溯系统.jpg"
+                                <img src="茶叶追溯系统.png"
                                      alt="茶叶追溯系统"
                                      loading="lazy"
                                      decoding="async"
@@ -2094,14 +2096,6 @@
         document.addEventListener('DOMContentLoaded', () => {
             handleScrollAnimation();
             animateCounters();
-        });
-
-        // 页面所有资源加载完成后再预加载视频
-        window.addEventListener('load', () => {
-            setTimeout(() => {
-                const video = document.getElementById('promoVideo');
-                video.preload = 'auto';
-            }, 1000);
         });
     </script>
 
