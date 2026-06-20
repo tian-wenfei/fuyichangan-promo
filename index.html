@@ -1,0 +1,2443 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <title>茯兴"硒"望 - 富硒茯茶金花智控设备助农增收新引擎</title>
+    <meta name="description" content="项目聚焦富硒茯茶生产核心环节，研发出集AI视觉识别、5G物联网和红外光谱技术于一体的智能发花设备">
+    <meta name="theme-color" content="#2d5016">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="format-detection" content="telephone=no">
+    
+    <!-- 性能优化 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta name="MobileOptimized" content="width">
+    <meta name="HandheldFriendly" content="true">
+    
+    <!-- 资源预加载 -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+    <meta http-equiv="Link" content="<home.jpg>; rel=prefetch; as=image" http-equiv="Link">
+    
+    <link rel="icon" href="logo.png">
+    <link rel="apple-touch-icon" href="logo.png">
+    
+    <!-- 预连接外部资源 -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="https://p1.img.cctvpic.com">
+    <link rel="dns-prefetch" href="https://p2.img.cctvpic.com">
+    <link rel="dns-prefetch" href="https://p3.img.cctvpic.com">
+    <link rel="dns-prefetch" href="https://p4.img.cctvpic.com">
+
+    <!-- 最高优先级：首屏关键资源立即加载 -->
+    <link rel="preload" href="logo.png" as="image" imagesrcset="logo.png" imagesizes="45x45" fetchpriority="high">
+    <link rel="preload" href="home.jpg" as="image" fetchpriority="high">
+
+    <!-- 次高优先级：产品图片（在首屏下方但重要） -->
+    <link rel="preload" href="2.0发花设备.png" as="image" fetchpriority="high">
+
+    <!-- 低优先级：其他图片后台预取，不阻塞首屏 -->
+    <link rel="prefetch" href="douyin.png" as="image">
+    <link rel="prefetch" href="微信小程序.jpg" as="image">
+    <link rel="prefetch" href="茶叶追溯系统.jpg" as="image">
+
+    <!-- 异步加载 Font Awesome -->
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
+    
+    <style>
+        :root {
+            --primary-color: #2d5016;
+            --secondary-color: #d4a017;
+            --accent-color: #8b4513;
+            --light-color: #f8f5f0;
+            --dark-color: #1a1a1a;
+            --gradient-primary: linear-gradient(135deg, #2d5016 0%, #3e7420 100%);
+            --gradient-secondary: linear-gradient(135deg, #d4a017 0%, #e6b800 100%);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            background-color: #fefefe;
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* 导航栏 - 美化版 */
+        header {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(248, 245, 240, 0.98) 100%);
+            box-shadow: 0 4px 20px rgba(45, 80, 22, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            backdrop-filter: blur(10px);
+        }
+
+        header.scrolled {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.99) 0%, rgba(255, 255, 255, 0.99) 100%);
+            box-shadow: 0 6px 30px rgba(45, 80, 22, 0.15);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 0;
+            transition: padding 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        header.scrolled nav {
+            padding: 12px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-weight: 700;
+            font-size: 1.6rem;
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: translateY(-2px);
+        }
+
+        .logo img {
+            width: 48px;
+            height: 48px;
+            margin-right: 14px;
+            border-radius: 50%;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 4px 12px rgba(45, 80, 22, 0.2);
+        }
+
+        .logo:hover img {
+            transform: scale(1.15) rotate(8deg);
+            box-shadow: 0 6px 20px rgba(45, 80, 22, 0.3);
+        }
+
+        .logo span {
+            color: var(--secondary-color);
+            position: relative;
+        }
+
+        .logo span::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: var(--gradient-secondary);
+            transition: width 0.3s ease;
+            border-radius: 2px;
+        }
+
+        .logo:hover span::after {
+            width: 100%;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 35px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark-color);
+            font-weight: 500;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 8px 0;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .nav-links a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -10px;
+            right: -10px;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(212, 160, 23, 0.1) 0%, rgba(45, 80, 22, 0.05) 100%);
+            border-radius: 20px;
+            opacity: 0;
+            transform: scale(0.8);
+            transition: all 0.3s ease;
+            z-index: -1;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 3px;
+            background: var(--gradient-secondary);
+            transition: all 0.3s ease;
+            border-radius: 2px;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--primary-color);
+        }
+
+        .nav-links a:hover::before,
+        .nav-links a.active::before {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 60%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: linear-gradient(135deg, var(--primary-color) 0%, #3e7420 100%);
+            border: none;
+            width: 45px;
+            height: 45px;
+            border-radius: 12px;
+            font-size: 1.3rem;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(45, 80, 22, 0.3);
+        }
+
+        .mobile-menu-btn:hover {
+            transform: translateY(-2px) scale(1.05);
+            box-shadow: 0 6px 20px rgba(45, 80, 22, 0.4);
+        }
+
+        .mobile-menu-btn:active {
+            transform: translateY(0) scale(0.98);
+        }
+        
+        /* 主横幅 - 首屏背景图立即加载 */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4)), url('home.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: scroll;
+            background-clip: border-box;
+            color: white;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            margin-top: 70px;
+            position: relative;
+            overflow: hidden;
+            /* 性能优化 */
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            -webkit-transform: translateZ(0);
+            transform: translateZ(0);
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 20% 50%, rgba(212, 160, 23, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 80%, rgba(45, 80, 22, 0.1) 0%, transparent 50%);
+            /* 移除动画以减少CPU消耗 */
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+            animation: fadeInUp 0.8s ease-out;
+            line-height: 1.3;
+        }
+
+        .hero h1 .title-highlight {
+            color: var(--secondary-color);
+        }
+
+        .hero h1 .title-selenium {
+            color: var(--secondary-color);
+            font-size: 1.2em;
+            font-weight: 700;
+        }
+        
+        .hero p {
+            font-size: clamp(1rem, 2.5vw, 1.3rem);
+            margin-bottom: 30px;
+            opacity: 0.9;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+        
+        .hero .subtitle {
+            font-size: 1.1rem;
+            margin-top: 20px;
+            animation: fadeInUp 0.8s ease-out 0.4s both;
+        }
+
+        .hero .subtitle-main {
+            font-size: clamp(0.9rem, 2vw, 1.1rem);
+            color: rgba(255, 255, 255, 0.95);
+            margin-top: 10px;
+            font-weight: 300;
+            letter-spacing: 0.5px;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+            animation: fadeInUp 0.8s ease-out 0.3s both;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 15px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 2px solid var(--secondary-color);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            animation: fadeInUp 0.8s ease-out 0.6s both;
+            -webkit-tap-highlight-color: transparent;
+            touch-action: manipulation;
+            min-width: 150px;
+        }
+        
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.6s;
+            z-index: -1;
+        }
+        
+        .cta-button:hover {
+            background-color: transparent;
+            color: var(--secondary-color);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
+        }
+        
+        .cta-button:hover::before {
+            left: 100%;
+        }
+
+        .video-play-btn {
+            position: absolute;
+            bottom: 215px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90px;
+            height: 90px;
+            background: linear-gradient(135deg, var(--secondary-color) 0%, #f5a623 100%);
+            opacity: 0.85;
+            border-radius: 50%;
+            border: none;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 6px 25px rgba(212, 160, 23, 0.5),
+                        0 0 40px rgba(212, 160, 23, 0.2);
+        }
+
+        .video-play-btn::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--secondary-color) 0%, #f5a623 100%);
+            opacity: 0.9;
+            animation: pulse-wave 1.8s ease-out infinite;
+        }
+
+        .video-play-btn i {
+            position: relative;
+            z-index: 2;
+            margin-left: 4px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        @keyframes pulse-wave {
+            0% {
+                transform: scale(1);
+                opacity: 0.9;
+            }
+            50% {
+                opacity: 0.5;
+            }
+            100% {
+                transform: scale(2.2);
+                opacity: 0;
+            }
+        }
+
+        @keyframes btn-glow {
+            0%, 100% {
+                box-shadow: 0 6px 25px rgba(212, 160, 23, 0.5),
+                            0 0 40px rgba(212, 160, 23, 0.2);
+            }
+            50% {
+                box-shadow: 0 8px 35px rgba(212, 160, 23, 0.7),
+                            0 0 60px rgba(212, 160, 23, 0.4);
+            }
+        }
+
+        .video-play-btn:hover {
+            transform: translateX(-50%) scale(1.15);
+            opacity: 1;
+            box-shadow: 0 8px 35px rgba(212, 160, 23, 0.7),
+                        0 0 60px rgba(212, 160, 23, 0.5);
+            animation: btn-glow 1.5s ease-in-out infinite;
+        }
+
+        .video-play-btn:hover i {
+            transform: scale(1.1);
+        }
+
+        .video-play-btn:active {
+            transform: translateX(-50%) scale(1.05);
+        }
+
+        .video-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 9999;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .video-modal.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .video-modal-content {
+            position: relative;
+            width: 90%;
+            max-width: 900px;
+            background: #000;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        }
+
+        .video-modal-content video {
+            width: 100%;
+            display: block;
+        }
+
+        .video-modal-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            width: 40px;
+            height: 40px;
+            background: rgba(0, 0, 0, 0.7);
+            border: none;
+            border-radius: 50%;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
+
+        .video-modal-close:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: scale(1.1);
+        }
+        
+        /* 通用区块 */
+        .section {
+            padding: 100px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            color: var(--primary-color);
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--secondary-color);
+        }
+        
+        /* 项目简介 */
+        .about-intro {
+            max-width: 800px;
+            margin: 0 auto 50px;
+            text-align: center;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #666;
+        }
+        
+        .about-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            justify-content: center;
+        }
+        
+        .about-card {
+            background-color: var(--light-color);
+            padding: 30px;
+            border-radius: 12px;
+            transition: all 0.4s ease;
+            border-left: 4px solid var(--secondary-color);
+        }
+        
+        .about-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .about-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .about-card h3 i {
+            color: var(--secondary-color);
+        }
+        
+        .about-card ul {
+            list-style: none;
+        }
+        
+        .about-card li {
+            margin-bottom: 12px;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .about-card li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--secondary-color);
+            font-size: 1.2rem;
+        }
+        
+        /* 产品展示 */
+        .product-showcase {
+            background-color: var(--light-color);
+        }
+        
+        .product-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 50px;
+            align-items: center;
+        }
+        
+        .product-image {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            position: relative;
+            background: linear-gradient(135deg, #f0f0f0 0%, #e0e0e0 100%);
+        }
+        
+        .product-image img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+        
+        .product-image:hover img {
+            transform: scale(1.05);
+        }
+        
+        .product-image::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(45deg, rgba(212, 160, 23, 0.1), rgba(45, 80, 22, 0.1));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .product-image:hover::after {
+            opacity: 1;
+        }
+        
+        .product-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+        
+        .feature-list {
+            list-style: none;
+            margin-top: 20px;
+        }
+        
+        .feature-list li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .feature-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--secondary-color);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        
+        .feature-list li:hover {
+            transform: translateX(10px);
+            color: var(--primary-color);
+        }
+        
+        /* 核心价值 */
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+        }
+        
+        .value-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 40px 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .value-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+        
+        .value-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .value-card:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .value-icon {
+            font-size: 3.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+            transition: transform 0.3s ease;
+        }
+        
+        .value-card:hover .value-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+        
+        .value-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+        
+        /* 数据统计 */
+        .stats-section {
+            background: var(--gradient-primary);
+            color: white;
+            text-align: center;
+        }
+        
+        .stats-section .section-title {
+            color: white;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+        }
+        
+        .stat-item h2 {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            margin-bottom: 10px;
+            color: var(--secondary-color);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        /* 团队 */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+        }
+        
+        .team-card {
+            text-align: center;
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .team-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+        
+        .team-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+        }
+        
+        .team-card:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .team-avatar {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            background-color: #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: var(--primary-color);
+            transition: all 0.4s ease;
+            border: 3px solid var(--secondary-color);
+        }
+        
+        .team-card:hover .team-avatar {
+            transform: scale(1.15) rotate(10deg);
+            border-color: var(--primary-color);
+        }
+        
+        .team-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+        
+        .team-card > p:first-of-type {
+            color: var(--secondary-color);
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+        
+        .team-card > p:last-child {
+            font-size: 0.95rem;
+            color: #666;
+        }
+        
+        .team-advisors {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 1.1rem;
+            color: var(--primary-color);
+        }
+        
+        /* 页脚 */
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 70px 0 30px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+        
+        .footer-section h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: var(--secondary-color);
+        }
+        
+        .footer-section p {
+            margin-bottom: 10px;
+            line-height: 1.8;
+            max-width: 90%;
+        }
+
+        .footer-section:first-child p {
+            max-width: 85%;
+        }
+        
+        .footer-section i {
+            margin-right: 8px;
+            color: var(--secondary-color);
+        }
+        
+        .qr-code {
+            width: 100px;
+            height: 100px;
+            border-radius: 12px;
+            border: 3px solid var(--secondary-color);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            overflow: hidden;
+            transition: transform 0.3s ease;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        
+        .qr-code:hover {
+            transform: scale(1.05);
+        }
+        
+        .qr-code img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #444;
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+
+        .qr-wrapper {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .qr-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .qr-item p {
+            font-size: 0.85rem;
+            color: #ccc;
+            margin: 0;
+        }
+
+        /* ========== AI小茯 悬浮按钮 & 对话面板 ========== */
+        .ai-fab {
+            position: fixed;
+            bottom: 100px;
+            right: 24px;
+            width: 62px;
+            height: 62px;
+            border-radius: 50%;
+            background: white;
+            border: 3px solid var(--secondary-color);
+            cursor: pointer;
+            z-index: 998;
+            box-shadow: 0 4px 20px rgba(212, 160, 23, 0.35);
+            transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            -webkit-tap-highlight-color: transparent;
+            animation: ai-float 3s ease-in-out infinite;
+        }
+
+        .ai-fab img {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            object-fit: cover;
+            transition: transform 0.35s ease;
+        }
+
+        .ai-fab::after {
+            content: '';
+            position: absolute;
+            inset: -6px;
+            border-radius: 50%;
+            border: 2px dashed var(--secondary-color);
+            opacity: 0.35;
+            animation: ai-spin 12s linear infinite;
+        }
+
+        .ai-fab:hover {
+            transform: scale(1.12);
+            box-shadow: 0 8px 30px rgba(212, 160, 23, 0.55);
+            border-color: #e6b800;
+        }
+
+        .ai-fab:hover img {
+            transform: scale(1.08);
+        }
+
+        .ai-fab:active {
+            transform: scale(0.95);
+        }
+
+        .ai-fab .ai-tooltip {
+            position: absolute;
+            right: 72px;
+            background: var(--dark-color);
+            color: var(--secondary-color);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            transform: translateX(8px);
+        }
+
+        .ai-fab:hover .ai-tooltip {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        @keyframes ai-float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-6px); }
+        }
+
+        @keyframes ai-spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        /* AI 对话面板 */
+        .ai-panel-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.45);
+            z-index: 9998;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.35s ease;
+        }
+
+        .ai-panel-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .ai-panel {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 440px;
+            max-width: 92vw;
+            height: 100%;
+            background: #fff;
+            z-index: 9999;
+            box-shadow: -8px 0 40px rgba(0, 0, 0, 0.18);
+            transform: translateX(100%);
+            transition: transform 0.38s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            flex-direction: column;
+            border-radius: 18px 0 0 18px;
+            overflow: hidden;
+        }
+
+        .ai-panel.active {
+            transform: translateX(0);
+        }
+
+        .ai-panel-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 20px;
+            background: linear-gradient(135deg, var(--primary-color) 0%, #3e7420 100%);
+            color: white;
+            flex-shrink: 0;
+        }
+
+        .ai-panel-header .ai-panel-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .ai-panel-header .ai-panel-logo img {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--secondary-color);
+        }
+
+        .ai-panel-header .ai-panel-logo span {
+            font-weight: 600;
+            font-size: 1.05rem;
+        }
+
+        .ai-panel-close {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            border: none;
+            background: rgba(255, 255, 255, 0.15);
+            color: white;
+            font-size: 1.1rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .ai-panel-close:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: rotate(90deg);
+        }
+
+        .ai-panel-body {
+            flex: 1;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ai-panel-body iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* 移动端适配 */
+        @media (max-width: 768px) {
+            .ai-fab {
+                bottom: 85px;
+                right: 14px;
+                width: 54px;
+                height: 54px;
+            }
+
+            .ai-fab img {
+                width: 40px;
+                height: 40px;
+            }
+
+            .ai-fab .ai-tooltip {
+                display: none;
+            }
+
+            .ai-panel {
+                width: 100%;
+                max-width: 100%;
+                border-radius: 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .ai-fab {
+                bottom: 75px;
+                right: 10px;
+                width: 48px;
+                height: 48px;
+            }
+
+            .ai-fab img {
+                width: 36px;
+                height: 36px;
+            }
+        }
+
+        /* 返回顶部 */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 55px;
+            height: 55px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            font-size: 1.3rem;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            z-index: 999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-8px) scale(1.1);
+        }
+        
+        /* 失踪儿童滚动区域 */
+        .missing-children-section {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            padding: 40px 0;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .missing-children-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #ff6b6b, #ffd93d, #6bcb77);
+        }
+        
+        .missing-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .missing-header h2 {
+            color: #fff;
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .missing-header h2 i {
+            color: #ff6b6b;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+        }
+        
+        .missing-header p {
+            color: #aaa;
+            font-size: 0.95rem;
+        }
+        
+        .scroll-container {
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .scroll-container::before,
+        .scroll-container::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 100px;
+            z-index: 2;
+            pointer-events: none;
+        }
+        
+        .scroll-container::before {
+            left: 0;
+            background: linear-gradient(90deg, #1a1a1a 0%, transparent 100%);
+        }
+        
+        .scroll-container::after {
+            right: 0;
+            background: linear-gradient(90deg, transparent 0%, #1a1a1a 100%);
+        }
+        
+        .scroll-track {
+            display: flex;
+            gap: 25px;
+            animation: scroll 30s linear infinite;
+            width: max-content;
+        }
+        
+        .scroll-track:hover {
+            animation-play-state: paused;
+        }
+        
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        
+        .child-card {
+            flex-shrink: 0;
+            width: 220px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .child-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.1);
+            border-color: #ff6b6b;
+            box-shadow: 0 10px 30px rgba(255, 107, 107, 0.2);
+        }
+        
+        .child-photo {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #3a3a3a 0%, #2a2a2a 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .child-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .child-photo .placeholder {
+            font-size: 4rem;
+            color: #555;
+        }
+        
+        .child-status {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #ff6b6b;
+            color: white;
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            z-index: 1;
+        }
+        
+        .child-info {
+            padding: 15px;
+        }
+        
+        .child-info h4 {
+            color: #fff;
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+        }
+        
+        .child-info p {
+            color: #aaa;
+            font-size: 0.85rem;
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .child-info p i {
+            color: #ffd93d;
+            font-size: 0.8rem;
+            width: 16px;
+        }
+        
+        .missing-tip {
+            text-align: center;
+            margin-top: 25px;
+            padding: 15px;
+            background: rgba(255, 107, 107, 0.1);
+            border-radius: 8px;
+            border: 1px dashed #ff6b6b;
+        }
+        
+        .missing-tip p {
+            color: #ffd93d;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        
+        /* 滚动动画 */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .delay-1 { transition-delay: 0.1s; }
+        .delay-2 { transition-delay: 0.2s; }
+        .delay-3 { transition-delay: 0.3s; }
+        
+        /* 响应式 - 全面优化移动端 */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: fixed;
+                top: 0;
+                right: 0;
+                left: 0;
+                background-color: white;
+                padding: 80px 25px 30px 25px;
+                box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+                border-radius: 0 0 20px 20px;
+                flex-direction: column;
+                gap: 20px;
+                width: 100%;
+                z-index: 999;
+            }
+
+            .nav-links a {
+                padding: 15px 10px;
+                font-size: 1.1rem;
+                text-align: center;
+                border-radius: 10px;
+                background: linear-gradient(135deg, rgba(45, 80, 22, 0.05) 0%, rgba(212, 160, 23, 0.05) 100%);
+            }
+
+            .nav-links a::before {
+                display: none;
+            }
+
+            .nav-links.mobile-active {
+                display: flex;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+                width: 48px;
+                height: 48px;
+                -webkit-tap-highlight-color: transparent;
+                touch-action: manipulation;
+            }
+
+            .section {
+                padding: 50px 0;
+            }
+
+            .section-title {
+                font-size: clamp(1.5rem, 6vw, 2rem);
+                margin-bottom: 40px;
+            }
+
+            .hero {
+                height: 85vh;
+            }
+
+            .hero h1 {
+                font-size: clamp(1.5rem, 7vw, 2.2rem);
+            }
+
+            .hero .subtitle-main {
+                font-size: clamp(0.9rem, 4vw, 1.1rem);
+            }
+
+            .hero-content p {
+                font-size: clamp(0.9rem, 3.5vw, 1rem);
+            }
+
+            .back-to-top {
+                bottom: 20px;
+                right: 15px;
+                width: 48px;
+                height: 48px;
+                font-size: 1.2rem;
+            }
+
+            .product-container {
+                flex-direction: column;
+                gap: 30px;
+            }
+
+            .product-image, .product-info {
+                flex: 1 1 100%;
+            }
+
+            .product-image img {
+                height: 240px;
+                width: 100%;
+            }
+
+            .values-grid,
+            .stats-grid {
+                grid-template-columns: 100%;
+            }
+
+            .team-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+            }
+
+            .team-card {
+                padding: 20px 15px;
+            }
+
+            .team-avatar {
+                width: 80px;
+                height: 80px;
+                font-size: 2rem;
+            }
+
+            .about-intro {
+                font-size: 1rem;
+            }
+
+            .about-cards {
+                grid-template-columns: 1fr;
+            }
+
+            .about-card {
+                padding: 25px 20px;
+            }
+
+            .qr-wrapper {
+                flex-direction: row;
+                flex-wrap: wrap;
+            }
+
+            .qr-item {
+                flex: 1 1 30%;
+                min-width: 100px;
+            }
+
+            .qr-code {
+                width: 80px;
+                height: 80px;
+            }
+
+            .cta-button {
+                padding: 14px 30px;
+                font-size: 1rem;
+                width: 100%;
+                text-align: center;
+            }
+
+            .hero-content .cta-button {
+                width: 100%;
+            }
+        }
+
+        /* 超小屏幕优化 (小于480px) */
+        @media (max-width: 480px) {
+            .logo {
+                font-size: 1.3rem;
+            }
+
+            .logo img {
+                width: 40px;
+                height: 40px;
+                margin-right: 10px;
+            }
+
+            .hero h1 {
+                font-size: clamp(1.3rem, 6.5vw, 1.8rem);
+            }
+
+            .hero-content {
+                padding: 15px;
+            }
+
+            .stat-item h2 {
+                font-size: clamp(2rem, 10vw, 2.5rem);
+            }
+
+            .team-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .team-card {
+                padding: 25px 20px;
+            }
+
+            .team-avatar {
+                width: 90px;
+                height: 90px;
+                font-size: 2.2rem;
+            }
+
+            .about-card {
+                padding: 20px 18px;
+            }
+
+            .feature-list li {
+                padding: 12px 15px;
+                font-size: 0.95rem;
+            }
+
+            nav {
+                padding: 14px 0;
+            }
+
+            header.scrolled nav {
+                padding: 10px 0;
+            }
+
+            .product-image img {
+                height: 200px;
+            }
+
+            .qr-item {
+                flex: 1 1 45%;
+            }
+
+            .footer-section h3 {
+                font-size: 1.1rem;
+            }
+        }
+
+        @media (max-width: 1200px) {
+            .team-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 900px) {
+            .values-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .team-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .footer-content {
+                grid-template-columns: 100%;
+                text-align: center;
+            }
+
+            .footer-section p {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 8px;
+            }
+
+            .footer-section i {
+                flex-shrink: 0;
+            }
+
+            .qr-code {
+                width: 80px;
+                height: 80px;
+            }
+
+            .qr-wrapper {
+                gap: 10px;
+            }
+
+            .qr-item p {
+                font-size: 0.75rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#home" class="logo">
+                    <img src="logo.png" alt="茯忆长安" width="45" height="45" loading="eager" fetchpriority="high">
+                    <span>茯忆<span>长安</span></span>
+                </a>
+                <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="菜单">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="#home" class="active">首页</a></li>
+                    <li><a href="#about">项目简介</a></li>
+                    <li><a href="#product">产品技术</a></li>
+                    <li><a href="#value">核心价值</a></li>
+                    <li><a href="#team">项目团队</a></li>
+                    <li><a href="#missing">公益寻人</a></li>
+                    <li><a href="#contact">联系我们</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1><span class="title-highlight"></span>茯兴</span><span class="title-selenium">“硒”</span><span class="title-highlight">望</span><br>从‘经验发花’到‘智能发花’的现代农业先行者</h1>
+            <p>AI视觉识别 + 5G物联网 + 红外光谱技术，助力传统茶产业向智能化、精细化、高效化转型升级</p>
+            <p class="subtitle">参赛赛道：现代农业与食品科技赛道 | 参赛团队：茯忆长安（已创业）</p>
+            <a href="#product" class="cta-button" onclick="openVideoModalWithSrc('模型展示.mp4'); return false;">了解智能发花机</a>
+            <button class="video-play-btn" onclick="openVideoModal()" style="display: none;">
+                <i class="fas fa-play"></i>
+            </button>
+        </div>
+    </section>
+
+    <section class="section" id="about">
+        <div class="container">
+            <h2 class="section-title fade-in">项目简介</h2>
+            <div class="about-intro fade-in">
+                <p>项目聚焦富硒茯茶生产核心环节，针对传统发花工艺依赖经验、质量不稳定、效率低下等痛点，研发出集AI视觉识别、5G物联网和红外光谱技术于一体的智能发花设备，实现茯茶生产过程的精准控制与数字化管理。</p>
+                
+            </div>
+            <div class="about-cards">
+                <div class="about-card fade-in">
+                    <h3><i class="fas fa-lightbulb"></i>问题背景</h3>
+                    <ul>
+                        <li>传统茯茶发花依赖经验，成功率仅60%-70%</li>
+                        <li>手工操作效率低，难以规模化生产</li>
+                        <li>质量监控缺失，产品一致性差</li>
+                        <li>硒含量无法实时监测，营养价值难以保证</li>
+                    </ul>
+                </div>
+                <div class="about-card fade-in delay-1">
+                    <h3><i class="fas fa-rocket"></i>解决方案</h3>
+                    <ul>
+                        <li>AI视觉识别系统，实时监测金花生长状态</li>
+                        <li>红外光谱技术，精准检测硒含量</li>
+                        <li>5G物联网，远程监控生产过程</li>
+                        <li>智能化控制系统，自动调节温湿度</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section product-showcase" id="product">
+        <div class="container">
+            <h2 class="section-title fade-in">智能发花机2.0</h2>
+            <div class="product-container">
+                <div class="product-image fade-in">
+                    <img src="2.0发花设备.png" alt="智能发花机2.0产品图" loading="eager" decoding="async" fetchpriority="high">
+                </div>
+                <div class="product-info fade-in delay-1">
+                    <h3>智能化发花装置2.0技术</h3>
+                    <p>历经3年30余次实践，2次迭代更新，结合AI识别、红外光谱和5G物联网技术，实现富硒茯茶生产过程的精准控制与数字化管理。</p>
+                    <ul class="feature-list">
+                        <li>AI视觉识别系统，分级精度超98%</li>
+                        <li>红外光谱模块，实时监测硒含量与发酵状态</li>
+                        <li>5G物联网监测大屏，远程实时监控</li>
+                        <li>茶叶梯级利用与处置一体化系统</li>
+                        <li>"四管"服务模式：管技术+管质量+管维修+管文创</li>
+                    </ul>
+                    <a href="#contact" class="cta-button" style="margin-top: 30px;">获取产品资料</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="value">
+        <div class="container">
+            <h2 class="section-title fade-in">核心价值与创新</h2>
+            <div class="values-grid">
+                <div class="value-card fade-in">
+                    <div class="value-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>技术突破</h3>
+                    <p>AI视觉识别精度≥98%，结合红外光谱与5G物联网，实现富硒茯茶发花过程精准智控，金花密度提升50%。</p>
+                </div>
+                <div class="value-card fade-in delay-1">
+                    <div class="value-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>助农增收</h3>
+                    <p>已帮助汉中市西乡镇15户农户年均增收3.2万元，发花成功率提至98.6%，较传统方式提高32个百分点。</p>
+                </div>
+                <div class="value-card fade-in delay-2">
+                    <div class="value-icon">
+                        <i class="fas fa-industry"></i>
+                    </div>
+                    <h3>产业升级</h3>
+                    <p>推动茶产业从"经验依赖"向"数据驱动"转型，茶叶利用效率提升55%，能耗降低12%，创造121个就业岗位。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section stats-section">
+        <div class="container">
+            <h2 class="section-title fade-in">项目成效数据</h2>
+            <div class="stats-grid">
+                <div class="stat-item fade-in">
+                    <h2 class="counter" data-target="98.6" data-suffix="%"><span class="count">0</span>%</h2>
+                    <p>发花成功率</p>
+                </div>
+                <div class="stat-item fade-in delay-1">
+                    <h2 class="counter" data-target="55" data-suffix="%"><span class="count">0</span>%</h2>
+                    <p>茶叶利用效率提升</p>
+                </div>
+                <div class="stat-item fade-in delay-2">
+                    <h2 class="counter" data-target="3.2" data-suffix="万"><span class="count">0</span>万</h2>
+                    <p>户均年增收(元)</p>
+                </div>
+                <div class="stat-item fade-in delay-3">
+                    <h2 class="counter" data-target="121" data-suffix="个"><span class="count">0</span>个</h2>
+                    <p>就业岗位创造</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="team">
+        <div class="container">
+            <h2 class="section-title fade-in">项目团队</h2>
+            <div class="team-grid">
+                <div class="team-card fade-in">
+                    <div class="team-avatar"><i class="fas fa-user-tie"></i></div>
+                    <h3>朱晨雨</h3>
+                    <p>工程造价专业</p>
+                    <p>作为团队创始人，多次带队深入茶乡调研，精准定位"发花工艺"为产业瓶颈，是项目社会价值的坚定守护者与推动者。</p>
+                </div>
+                <div class="team-card fade-in delay-1">
+                    <div class="team-avatar"><i class="fas fa-bolt"></i></div>
+                    <h3>金杉</h3>
+                    <p>电气工程及自动化专业</p>
+                    <p>负责智能设备核心电路的设计调试，保障设备各系统稳定互联运行。</p>
+                </div>
+                <div class="team-card fade-in delay-2">
+                    <div class="team-avatar"><i class="fas fa-tools"></i></div>
+                    <h3>贾博涵</h3>
+                    <p>土木工程专业</p>
+                    <p>负责装置研发与结构优化工作。结合生产需求完成设备的模块化结构设计。</p>
+                </div>
+                <div class="team-card fade-in delay-3">
+                    <div class="team-avatar"><i class="fas fa-palette"></i></div>
+                    <h3>李青清</h3>
+                    <p>视觉传达设计专业</p>
+                    <p>负责品牌视觉设计与包装策划。挖掘地方文化内涵与经济发展。</p>
+                </div>
+                <div class="team-card fade-in delay-2">
+                    <div class="team-avatar"><i class="fas fa-cogs"></i></div>
+                    <h3>宋海博</h3>
+                    <p>电气工程及其自动化专业</p>
+                    <p>负责设备电控系统的程序编写与调试，保障智能化调控功能稳定落地。</p>
+                </div>
+                <div class="team-card fade-in delay-3">
+                    <div class="team-avatar"><i class="fas fa-calculator"></i></div>
+                    <h3>冯毅</h3>
+                    <p>工程造价专业</p>
+                    <p>负责财务管理与成本控制。提升资金使用效能。</p>
+                </div>
+                <div class="team-card fade-in delay-3">
+                    <div class="team-avatar"><i class="fas fa-laptop-code"></i></div>
+                    <h3>田文飞</h3>
+                    <p>软件技术专业</p>
+                    <p>负责系统开发与技术支持。相关软件系统的开发、优化以及后期技术支持。</p>
+                </div>
+                <div class="team-card fade-in delay-2">
+                    <div class="team-avatar"><i class="fas fa-bullhorn"></i></div>
+                    <h3>杨晨曦</h3>
+                    <p>视觉传达设计专业</p>
+                    <p>负责新媒体运营与宣传推广。注重将传播实践与社会需求相结合。</p>
+                </div>
+                <div class="team-card fade-in delay-3">
+                    <div class="team-avatar"><i class="fas fa-chart-line"></i></div>
+                    <h3>李思涵</h3>
+                    <p>土木工程专业</p>
+                    <p>负责财务分析板块，擅长运用专业数据分析支持项目决策。</p>
+                </div>
+                <div class="team-card fade-in delay-3">
+                    <div class="team-avatar"><i class="fas fa-map-marked-alt"></i></div>
+                    <h3>王彤彤</h3>
+                    <p>旅游管理专业</p>
+                    <p>负责项目的品牌文化推广和活动策划。</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 失踪儿童公益寻人 -->
+    <section class="missing-children-section" id="missing">
+        <div class="container">
+            <div class="missing-header">
+                <h2><i class="fas fa-heart"></i> 公益寻人 <i class="fas fa-heart"></i></h2>
+                <p>数据来源：公安部儿童失踪信息紧急发布平台 | 每一个孩子都是天使，让我们一起帮助他们回家</p>
+            </div>
+            <div class="scroll-container">
+                <div class="scroll-track">
+                    <!-- 郑泽文 -->
+                    <div class="child-card">
+                        <div class="child-photo">
+                            <img src="https://p2.img.cctvpic.com/apple3g/www/upload/image/20251017/1760673600928053005.jpg" alt="郑泽文照片" loading="lazy">
+                            <span class="child-status">寻找中</span>
+                        </div>
+                        <div class="child-info">
+                            <h4>郑泽文</h4>
+                            <p><i class="fas fa-venus-mars"></i>男 / 12岁</p>
+                            <p><i class="fas fa-ruler-vertical"></i>身高163cm</p>
+                            <p><i class="fas fa-map-marker-alt"></i>甘肃兰州榆中县</p>
+                            <p><i class="fas fa-calendar"></i>2025年10月走失</p>
+                        </div>
+                    </div>
+                    <!-- 董苡柔 -->
+                    <div class="child-card">
+                        <div class="child-photo">
+                            <img src="https://p4.img.cctvpic.com/apple3g/www/upload/image/20240813/1723521609943062874.jpg" alt="董苡柔照片" loading="lazy">
+                            <span class="child-status">寻找中</span>
+                        </div>
+                        <div class="child-info">
+                            <h4>董苡柔（十月）</h4>
+                            <p><i class="fas fa-venus-mars"></i>女 / 2.5岁</p>
+                            <p><i class="fas fa-ruler-vertical"></i>穿粉色衣服</p>
+                            <p><i class="fas fa-map-marker-alt"></i>山西运城芮城县</p>
+                            <p><i class="fas fa-calendar"></i>2024年8月走失</p>
+                        </div>
+                    </div>
+                    <!-- 王宇泽 -->
+                    <div class="child-card">
+                        <div class="child-photo">
+                            <img src="https://p3.img.cctvpic.com/apple3g/www/upload/image/20240611/1718100009840063410.jpg" alt="王宇泽照片" loading="lazy">
+                            <span class="child-status">寻找中</span>
+                        </div>
+                        <div class="child-info">
+                            <h4>王宇泽</h4>
+                            <p><i class="fas fa-venus-mars"></i>男 / 13岁</p>
+                            <p><i class="fas fa-ruler-vertical"></i>身高1.6米</p>
+                            <p><i class="fas fa-map-marker-alt"></i>陕西西安未央区</p>
+                            <p><i class="fas fa-calendar"></i>2024年6月走失</p>
+                        </div>
+                    </div>
+                    <!-- 周依星 -->
+                    <div class="child-card">
+                        <div class="child-photo">
+                            <img src="https://p4.img.cctvpic.com/apple3g/www/upload/image/20240502/1714644009886054374.jpg" alt="周依星照片" loading="lazy">
+                            <span class="child-status">寻找中</span>
+                        </div>
+                        <div class="child-info">
+                            <h4>周依星</h4>
+                            <p><i class="fas fa-venus-mars"></i>女 / 11岁</p>
+                            <p><i class="fas fa-ruler-vertical"></i>身高1.52米</p>
+                            <p><i class="fas fa-map-marker-alt"></i>湖南娄底市</p>
+                            <p><i class="fas fa-calendar"></i>2024年6月走失</p>
+                        </div>
+                    </div>
+                    <!-- 韩广灵 -->
+                    <div class="child-card">
+                        <div class="child-photo">
+                            <img src="https://p1.img.cctvpic.com/apple3g/www/upload/image/20240201/1706716809747095005.jpg" alt="韩广灵照片" loading="lazy">
+                            <span class="child-status">寻找中</span>
+                        </div>
+                        <div class="child-info">
+                            <h4>韩广灵</h4>
+                            <p><i class="fas fa-venus-mars"></i>女 / 12岁</p>
+                            <p><i class="fas fa-ruler-vertical"></i>身高150cm</p>
+                            <p><i class="fas fa-map-marker-alt"></i>吉林松原市</p>
+                            <p><i class="fas fa-calendar"></i>2024年1月走失</p>
+                        </div>
+                    </div>
+                    <!-- 任寅赫 -->
+                    <div class="child-card">
+                        <div class="child-photo">
+                            <img src="https://p4.img.cctvpic.com/apple3g/www/upload/image/20231111/1699632009768076157.jpg" alt="任寅赫照片" loading="lazy">
+                            <span class="child-status">寻找中</span>
+                        </div>
+                        <div class="child-info">
+                            <h4>任寅赫</h4>
+                            <p><i class="fas fa-venus-mars"></i>男 / 13岁</p>
+                            <p><i class="fas fa-ruler-vertical"></i>身高150cm</p>
+                            <p><i class="fas fa-map-marker-alt"></i>河南许昌市</p>
+                            <p><i class="fas fa-calendar"></i>2023年11月走失</p>
+                        </div>
+                    </div>
+                    <!-- 赵麒桦 -->
+                    <div class="child-card">
+                        <div class="child-photo">
+                            <img src="https://p4.img.cctvpic.com/apple3g/www/upload/image/20230702/1688227200642066858.jpg" alt="赵麒桦照片" loading="lazy">
+                            <span class="child-status">寻找中</span>
+                        </div>
+                        <div class="child-info">
+                            <h4>赵麒桦</h4>
+                            <p><i class="fas fa-venus-mars"></i>男 / 8岁</p>
+                            <p><i class="fas fa-ruler-vertical"></i>身高135cm</p>
+                            <p><i class="fas fa-map-marker-alt"></i>海南海口市</p>
+                            <p><i class="fas fa-calendar"></i>2023年7月走失</p>
+                        </div>
+                    </div>
+                    <!-- 余乐 -->
+                    <div class="child-card">
+                        <div class="child-photo">
+                            <img src="https://p4.img.cctvpic.com/apple3g/www/upload/image/20230608/1686153608051067138.jpg" alt="余乐照片" loading="lazy">
+                            <span class="child-status">寻找中</span>
+                        </div>
+                        <div class="child-info">
+                            <h4>余乐</h4>
+                            <p><i class="fas fa-venus-mars"></i>男 / 13岁</p>
+                            <p><i class="fas fa-ruler-vertical"></i>穿红色校服</p>
+                            <p><i class="fas fa-map-marker-alt"></i>云南宣威市</p>
+                            <p><i class="fas fa-calendar"></i>2023年6月走失</p>
+                        </div>
+                    </div>
+                    <!-- 复制一份实现无缝滚动 -->
+                    <div class="child-card">
+                        <div class="child-photo">
+                            <img src="https://p2.img.cctvpic.com/apple3g/www/upload/image/20251017/1760673600928053005.jpg" alt="郑泽文照片" loading="lazy">
+                            <span class="child-status">寻找中</span>
+                        </div>
+                        <div class="child-info">
+                            <h4>郑泽文</h4>
+                            <p><i class="fas fa-venus-mars"></i>男 / 12岁</p>
+                            <p><i class="fas fa-ruler-vertical"></i>身高163cm</p>
+                            <p><i class="fas fa-map-marker-alt"></i>甘肃兰州榆中县</p>
+                            <p><i class="fas fa-calendar"></i>2025年10月走失</p>
+                        </div>
+                    </div>
+                    <div class="child-card">
+                        <div class="child-photo">
+                            <img src="https://p4.img.cctvpic.com/apple3g/www/upload/image/20240813/1723521609943062874.jpg" alt="董苡柔照片" loading="lazy">
+                            <span class="child-status">寻找中</span>
+                        </div>
+                        <div class="child-info">
+                            <h4>董苡柔（十月）</h4>
+                            <p><i class="fas fa-venus-mars"></i>女 / 2.5岁</p>
+                            <p><i class="fas fa-ruler-vertical"></i>穿粉色衣服</p>
+                            <p><i class="fas fa-map-marker-alt"></i>山西运城芮城县</p>
+                            <p><i class="fas fa-calendar"></i>2024年8月走失</p>
+                        </div>
+                    </div>
+                    <div class="child-card">
+                        <div class="child-photo">
+                            <img src="https://p3.img.cctvpic.com/apple3g/www/upload/image/20240611/1718100009840063410.jpg" alt="王宇泽照片" loading="lazy">
+                            <span class="child-status">寻找中</span>
+                        </div>
+                        <div class="child-info">
+                            <h4>王宇泽</h4>
+                            <p><i class="fas fa-venus-mars"></i>男 / 13岁</p>
+                            <p><i class="fas fa-ruler-vertical"></i>身高1.6米</p>
+                            <p><i class="fas fa-map-marker-alt"></i>陕西西安未央区</p>
+                            <p><i class="fas fa-calendar"></i>2024年6月走失</p>
+                        </div>
+                    </div>
+                    <div class="child-card">
+                        <div class="child-photo">
+                            <img src="https://p4.img.cctvpic.com/apple3g/www/upload/image/20240502/1714644009886054374.jpg" alt="周依星照片" loading="lazy">
+                            <span class="child-status">寻找中</span>
+                        </div>
+                        <div class="child-info">
+                            <h4>周依星</h4>
+                            <p><i class="fas fa-venus-mars"></i>女 / 11岁</p>
+                            <p><i class="fas fa-ruler-vertical"></i>身高1.52米</p>
+                            <p><i class="fas fa-map-marker-alt"></i>湖南娄底市</p>
+                            <p><i class="fas fa-calendar"></i>2024年6月走失</p>
+                        </div>
+                    </div>
+                    <div class="child-card">
+                        <div class="child-photo">
+                            <img src="https://p1.img.cctvpic.com/apple3g/www/upload/image/20240201/1706716809747095005.jpg" alt="韩广灵照片" loading="lazy">
+                            <span class="child-status">寻找中</span>
+                        </div>
+                        <div class="child-info">
+                            <h4>韩广灵</h4>
+                            <p><i class="fas fa-venus-mars"></i>女 / 12岁</p>
+                            <p><i class="fas fa-ruler-vertical"></i>身高150cm</p>
+                            <p><i class="fas fa-map-marker-alt"></i>吉林松原市</p>
+                            <p><i class="fas fa-calendar"></i>2024年1月走失</p>
+                        </div>
+                    </div>
+                    <div class="child-card">
+                        <div class="child-photo">
+                            <img src="https://p4.img.cctvpic.com/apple3g/www/upload/image/20231111/1699632009768076157.jpg" alt="任寅赫照片" loading="lazy">
+                            <span class="child-status">寻找中</span>
+                        </div>
+                        <div class="child-info">
+                            <h4>任寅赫</h4>
+                            <p><i class="fas fa-venus-mars"></i>男 / 13岁</p>
+                            <p><i class="fas fa-ruler-vertical"></i>身高150cm</p>
+                            <p><i class="fas fa-map-marker-alt"></i>河南许昌市</p>
+                            <p><i class="fas fa-calendar"></i>2023年11月走失</p>
+                        </div>
+                    </div>
+                    <div class="child-card">
+                        <div class="child-photo">
+                            <img src="https://p4.img.cctvpic.com/apple3g/www/upload/image/20230702/1688227200642066858.jpg" alt="赵麒桦照片" loading="lazy">
+                            <span class="child-status">寻找中</span>
+                        </div>
+                        <div class="child-info">
+                            <h4>赵麒桦</h4>
+                            <p><i class="fas fa-venus-mars"></i>男 / 8岁</p>
+                            <p><i class="fas fa-ruler-vertical"></i>身高135cm</p>
+                            <p><i class="fas fa-map-marker-alt"></i>海南海口市</p>
+                            <p><i class="fas fa-calendar"></i>2023年7月走失</p>
+                        </div>
+                    </div>
+                    <div class="child-card">
+                        <div class="child-photo">
+                            <img src="https://p4.img.cctvpic.com/apple3g/www/upload/image/20230608/1686153608051067138.jpg" alt="余乐照片" loading="lazy">
+                            <span class="child-status">寻找中</span>
+                        </div>
+                        <div class="child-info">
+                            <h4>余乐</h4>
+                            <p><i class="fas fa-venus-mars"></i>男 / 13岁</p>
+                            <p><i class="fas fa-ruler-vertical"></i>穿红色校服</p>
+                            <p><i class="fas fa-map-marker-alt"></i>云南宣威市</p>
+                            <p><i class="fas fa-calendar"></i>2023年6月走失</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="missing-tip">
+                <p><i class="fas fa-info-circle"></i> 数据来源：<a href="https://app.cctv.com/special/cbox/childrenlist/index.html" target="_blank" style="color:#ffd93d;">公安部儿童失踪信息紧急发布平台</a> | 如有线索请拨打 110</p>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>茯忆长安</h3>
+                    <p>富硒茯茶金花智控设备助农增收新引擎</p>
+                    <p>致力于成为茶行业智能化革命的重要参与者，以科技创新守护中国茶文化的世界竞争力。</p>
+                </div>
+                <div class="footer-section">
+                    <h3>联系方式</h3>
+                    <p><i class="fas fa-envelope"></i>948979226@qq.com</p>
+                    <p><i class="fas fa-phone"></i>+86 15091730188</p>
+                    <p><i class="fas fa-map-marker-alt"></i>陕西省渭南市临渭区向阳路街道办事处文昌阁社区</p>
+                </div>
+                <div class="footer-section">
+                    <h3>关注我们</h3>
+                    <div class="qr-wrapper">
+                        <div class="qr-item">
+                            <div class="qr-code">
+                                <img src="douyin.png"
+                                     alt="抖音二维码"
+                                     loading="lazy"
+                                     decoding="async"
+                                     onerror="this.style.display='none'">
+                            </div>
+                            <p>抖音二维码</p>
+                        </div>
+                        <div class="qr-item">
+                            <div class="qr-code">
+                                <img src="茶叶追溯系统.png"
+                                     alt="茶叶追溯系统"
+                                     loading="lazy"
+                                     decoding="async"
+                                     onerror="this.style.display='none'">
+                            </div>
+                            <p>茶叶追溯系统</p>
+                        </div>
+                        <div class="qr-item">
+                            <div class="qr-code">
+                                <img src="微信小程序.jpg"
+                                     alt="微信小程序"
+                                     loading="lazy"
+                                     decoding="async"
+                                     onerror="this.style.display='none'">
+                            </div>
+                            <p>微信小程序</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2026 茯忆长安团队 版权所有</p>
+                <p>挑战杯参赛项目：现代农业与食品科技赛道</p>
+            </div>
+        </div>
+    </footer>
+
+    <button id="backToTop" class="back-to-top" aria-label="返回顶部">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- AI小茯 悬浮入口 -->
+    <button id="aiFab" class="ai-fab" aria-label="打开AI小茯助手" title="AI小茯 - 智能问答助手">
+        <img src="AI小茯.png" alt="AI小茯" loading="lazy">
+        <span class="ai-tooltip">AI小茯 · 智能问答</span>
+    </button>
+
+    <!-- AI小茯 对话面板 -->
+    <div class="ai-panel-overlay" id="aiOverlay"></div>
+    <div class="ai-panel" id="aiPanel">
+        <div class="ai-panel-header">
+            <div class="ai-panel-logo">
+                <img src="AI小茯.png" alt="AI小茯">
+                <span>AI小茯 · 智能助手</span>
+            </div>
+            <button class="ai-panel-close" id="aiPanelClose" aria-label="关闭对话">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="ai-panel-body" id="aiPanelBody">
+            <!-- iframe 懒加载 -->
+        </div>
+    </div>
+
+    <script>
+        // 移动端菜单切换
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.getElementById('navLinks');
+        const headerElement = document.querySelector('header');
+        
+        // 点击菜单按钮切换
+        mobileMenuBtn?.addEventListener('click', (e) => {
+            e.stopPropagation();
+            navLinks.classList.toggle('mobile-active');
+        });
+        
+        // 点击菜单外部关闭
+        document.addEventListener('click', (e) => {
+            if (window.innerWidth <= 768 && 
+                navLinks.classList.contains('mobile-active') && 
+                !navLinks.contains(e.target) && 
+                !mobileMenuBtn.contains(e.target)) {
+                navLinks.classList.remove('mobile-active');
+            }
+        });
+        
+        // 防止点击菜单内容时冒泡关闭
+        navLinks?.addEventListener('click', (e) => {
+            e.stopPropagation();
+        });
+        
+        // 屏幕旋转时关闭菜单
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768) {
+                navLinks.classList.remove('mobile-active');
+            }
+        });
+
+        // 返回顶部按钮
+        const backToTopBtn = document.getElementById('backToTop');
+        const header = document.querySelector('header');
+
+        window.addEventListener('scroll', () => {
+            const scrollY = window.scrollY;
+            
+            // 导航栏样式
+            header.classList.toggle('scrolled', scrollY > 50);
+            
+            // 返回顶部按钮
+            backToTopBtn.classList.toggle('visible', scrollY > 300);
+            
+            // 导航激活状态
+            updateActiveNav();
+            
+            // 滚动动画
+            handleScrollAnimation();
+        }, { passive: true });
+
+        backToTopBtn?.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    const headerHeight = header.offsetHeight;
+                    const targetPosition = targetElement.offsetTop - headerHeight;
+                    window.scrollTo({ top: targetPosition, behavior: 'smooth' });
+                    
+                    // 移动端关闭菜单
+                    if (window.innerWidth <= 768) {
+                        navLinks.classList.remove('mobile-active');
+                    }
+                }
+            });
+        });
+
+        // 更新导航激活状态
+        function updateActiveNav() {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.nav-links a');
+            const scrollPos = window.scrollY + 100;
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.offsetHeight;
+                const sectionId = section.getAttribute('id');
+
+                if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
+                    navLinks.forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === `#${sectionId}`) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+        }
+
+        // 滚动动画
+        function handleScrollAnimation() {
+            const elements = document.querySelectorAll('.fade-in');
+            const triggerBottom = window.innerHeight * 0.85;
+
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                if (elementTop < triggerBottom) {
+                    element.classList.add('visible');
+                }
+            });
+        }
+
+        // 数字计数器动画
+        function animateCounters() {
+            const counters = document.querySelectorAll('.counter');
+            
+            counters.forEach(counter => {
+                const countElement = counter.querySelector('.count');
+                const target = parseFloat(counter.dataset.target);
+                const duration = 1500; // 减少动画时间
+                let startTime = null;
+                
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting && !counter.classList.contains('animated')) {
+                            counter.classList.add('animated');
+                            
+                            function animate(currentTime) {
+                                if (!startTime) startTime = currentTime;
+                                const elapsed = currentTime - startTime;
+                                const progress = Math.min(elapsed / duration, 1);
+                                const easeProgress = 1 - Math.pow(1 - progress, 3);
+                                const current = target * easeProgress;
+                                
+                                countElement.textContent = target % 1 !== 0 ? current.toFixed(1) : Math.floor(current);
+                                
+                                if (progress < 1) {
+                                    requestAnimationFrame(animate);
+                                } else {
+                                    countElement.textContent = target % 1 !== 0 ? target.toFixed(1) : target;
+                                }
+                            }
+                            requestAnimationFrame(animate);
+                            observer.unobserve(counter);
+                        }
+                    });
+                }, { threshold: 0.5 });
+                
+                observer.observe(counter);
+            });
+        }
+
+        // 初始化
+        document.addEventListener('DOMContentLoaded', () => {
+            handleScrollAnimation();
+            animateCounters();
+        });
+    </script>
+
+    <div class="video-modal" id="videoModal">
+        <div class="video-modal-content">
+            <button class="video-modal-close" onclick="closeVideoModal()">
+                <i class="fas fa-times"></i>
+            </button>
+            <video id="promoVideo" preload="none" controls>
+                <source src="宣传视频.mp4" type="video/mp4">
+                您的浏览器不支持视频播放
+            </video>
+        </div>
+    </div>
+
+    <script>
+        function openVideoModal() {
+            const modal = document.getElementById('videoModal');
+            const video = document.getElementById('promoVideo');
+            video.src = '宣传视频.mp4';
+            video.currentTime = 0;
+            modal.classList.add('active');
+            video.play();
+        }
+
+        function openVideoModalWithSrc(src) {
+            const modal = document.getElementById('videoModal');
+            const video = document.getElementById('promoVideo');
+            video.src = src;
+            modal.classList.add('active');
+            video.play();
+        }
+
+        function closeVideoModal() {
+            const modal = document.getElementById('videoModal');
+            const video = document.getElementById('promoVideo');
+            video.pause();
+            video.currentTime = 0;
+            modal.classList.remove('active');
+        }
+
+        document.getElementById('videoModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeVideoModal();
+            }
+        });
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeVideoModal();
+            }
+        });
+
+        // ========== AI小茯 面板逻辑 ==========
+        (function() {
+            const aiFab = document.getElementById('aiFab');
+            const aiPanel = document.getElementById('aiPanel');
+            const aiOverlay = document.getElementById('aiOverlay');
+            const aiPanelClose = document.getElementById('aiPanelClose');
+            const aiPanelBody = document.getElementById('aiPanelBody');
+            let iframeLoaded = false;
+
+            function openAiPanel() {
+                // 懒加载 iframe
+                if (!iframeLoaded) {
+                    const iframe = document.createElement('iframe');
+                    iframe.src = 'ai-assistant/index.html';
+                    iframe.title = 'AI小茯智能助手';
+                    iframe.loading = 'lazy';
+                    iframe.allow = 'microphone; clipboard-write';
+                    iframe.setAttribute('allowtransparency', 'true');
+                    aiPanelBody.appendChild(iframe);
+                    iframeLoaded = true;
+                }
+                aiPanel.classList.add('active');
+                aiOverlay.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+
+            function closeAiPanel() {
+                aiPanel.classList.remove('active');
+                aiOverlay.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+
+            aiFab?.addEventListener('click', openAiPanel);
+            aiPanelClose?.addEventListener('click', closeAiPanel);
+            aiOverlay?.addEventListener('click', closeAiPanel);
+
+            // ESC 关闭
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && aiPanel.classList.contains('active')) {
+                    closeAiPanel();
+                }
+            });
+        })();
+    </script>
+</body>
+</html>
