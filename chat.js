@@ -19,8 +19,13 @@ const teamInfo = {
     { name: '杨晨曦', role: '运营推广成员', bio: '视觉传达设计专业，负责新媒体运营、品牌宣传与内容推广', expertise: ['新媒体运营', '品牌宣传', '内容推广'] },
     { name: '李思涵', role: '财务分析成员', bio: '土木工程专业，负责财务数据分析，为项目决策提供数据支撑', expertise: ['财务分析', '数据决策', '数据分析'] }
   ],
+  /* 指导老师名单，与 README.md「指导老师」一行保持一致 */
+  advisors: ['李华君', '王云鹤', '靳谐美', '李万华', '宁国良', '时春喜'],
   projects: [
-    { name: '智能化发花装置2.0', description: '依托5G物联网、AI视觉识别、红外光谱监测、磁耦联自动清洁等技术，搭建"智能硬件+云平台"一体化系统，实时调控温湿度、监测金花生长与硒元素含量；搭载AI分拣系统，自动分级、二次回料，产品发花合格率达98%。设备落地陕南平利县、紫阳县等多个茶乡试点，发酵周期缩短18%、能耗下降24%、分拣效率提升5倍，硒元素含量稳定性提升32个百分点。', tags: ['现代农业', '智能装备', '物联网', 'AI视觉', '富硒茯茶'] },
+    /* 注意：下方「能耗下降24%」是陕南试点场景的实测值，与 projectFacts.values 中
+       面向全产业的「能耗降低12%」（同 index.html #value 板块）口径不同，两者并存不冲突，
+       改动时请勿互相覆盖 */
+    { name: '智能化发花装置2.0', description: '依托5G物联网、AI视觉识别、红外光谱监测、磁耦联自动清洁等技术，搭建"智能硬件+云平台"一体化系统，实时调控温湿度、监测金花生长与硒元素含量；搭载AI分拣系统，自动分级、二次回料，产品发花合格率达98%。设备落地陕南平利县、紫阳县等多个茶乡试点，试点场景实测：发酵周期缩短18%、能耗下降24%、分拣效率提升5倍，硒元素含量稳定性提升32个百分点。', tags: ['现代农业', '智能装备', '物联网', 'AI视觉', '富硒茯茶'] },
     { name: '茶叶梯级利用与处置一体化系统', description: '基于视觉识别技术实现茶叶智能分级，区分特级、一级、二级、茶末、茶渣等品类并匹配不同应用方向，做到原料梯级利用、物尽其用，减少原料损耗。单试点年减少茶叶损耗1.2吨，直接增收近15万元。', tags: ['AI识别', '智能分拣', '资源梯级利用', '数字化管理'] },
     { name: '富硒茯茶全流程溯源系统', description: '结合区块链技术，消费者扫码可查询茶叶从种植、加工到成品的全流程数据；同步搭载公益寻亲板块，依托产品流量助力公益。', tags: ['产品溯源', '区块链', '公益赋能', '品牌数字化'] }
   ],
@@ -63,7 +68,54 @@ const projectFacts = {
     { value: '121 个', label: '就业岗位创造' }
   ],
   rural: '项目以科技赋能农业、联农带农助力乡村振兴，已帮助汉中市西乡镇 15 户农户年均增收 3.2 万元，发花成功率提至 98.6%，较传统方式提高 32 个百分点。',
-  welfare: '团队在产品溯源中搭载公益寻亲板块，依托产品流量助力公益。相关失踪儿童信息可在官网「公益寻人」区查看。'
+  welfare: '团队在产品溯源中搭载公益寻亲板块，依托产品流量助力公益，失踪儿童信息来源于公安部儿童失踪信息紧急发布平台。',
+
+  /* 以下内容与落地页 index.html 对应板块保持一致 */
+
+  /* #about 传统发花之困 */
+  painPoints: [
+    '传统茯茶发花依赖经验，成功率仅 60%–70%',
+    '手工操作效率低，难以规模化生产',
+    '质量监控缺失，产品一致性差',
+    '硒含量无法实时监测，营养价值难以保证'
+  ],
+  /* #about 智能发花之解 */
+  solutions: [
+    'AI 视觉识别系统，实时监测金花生长状态',
+    '红外光谱技术，精准检测硒含量',
+    '5G 物联网，远程监控生产过程',
+    '智能化控制系统，自动调节温湿度'
+  ],
+  /* #value 核心价值与创新 */
+  values: [
+    { title: '技术突破', desc: 'AI 视觉识别精度 ≥98%，结合红外光谱与 5G 物联网，实现富硒茯茶发花过程精准智控，金花密度提升 50%。' },
+    { title: '助农增收', desc: '已帮助汉中市西乡镇 15 户农户年均增收 3.2 万元，发花成功率提至 98.6%，较传统方式提高 32 个百分点。' },
+    /* 「能耗降低 12%」为全产业口径，与 projects[0] 的试点实测值 24% 并存，见上方注释 */
+    { title: '产业升级', desc: '推动茶产业从「经验依赖」向「数据驱动」转型，整体来看茶叶利用效率提升 55%，能耗降低 12%，创造 121 个就业岗位。' }
+  ],
+  /* Hero / footer / 版权区的项目定位信息 */
+  positioning: {
+    slogan: '从「经验发花」到「智能发花」的硒望茶机',
+    tagline: '富硒茯茶金花智控设备，助农增收新引擎',
+    competition: '挑战杯 · 现代农业与食品科技赛道',
+    teamStatus: '参赛团队：茯忆长安（已创业）',
+    intro: '致力于成为茶行业智能化革命的重要参与者，以科技创新守护中国茶文化的世界竞争力。'
+  },
+  /* 研发历程（产品板块） */
+  iteration: '智能化发花装置 2.0 历经 3 年、30 余次实践、2 次迭代更新，结合 AI 识别、红外光谱与 5G 物联网，实现富硒茯茶生产的精准控制与数字化管理。',
+  /* footer 关注我们 */
+  channels: ['抖音（扫码关注官方账号）', '微信小程序', '茶叶追溯系统（扫码查询全流程溯源信息）'],
+  /* #missing 公益寻人名单，与落地页滚动卡片一致 */
+  missingChildren: [
+    { name: '郑泽文', profile: '男 / 12岁', feature: '身高163cm', place: '甘肃兰州榆中县', time: '2025年10月走失' },
+    { name: '董苡柔（十月）', profile: '女 / 2.5岁', feature: '穿粉色衣服', place: '山西运城芮城县', time: '2024年8月走失' },
+    { name: '王宇泽', profile: '男 / 13岁', feature: '身高1.6米', place: '陕西西安未央区', time: '2024年6月走失' },
+    { name: '周依星', profile: '女 / 11岁', feature: '身高1.52米', place: '湖南娄底市', time: '2024年6月走失' },
+    { name: '韩广灵', profile: '女 / 12岁', feature: '身高150cm', place: '吉林松原市', time: '2024年1月走失' },
+    { name: '任寅赫', profile: '男 / 13岁', feature: '身高150cm', place: '河南许昌市', time: '2023年11月走失' },
+    { name: '赵麒桦', profile: '男 / 8岁', feature: '身高135cm', place: '海南海口市', time: '2023年7月走失' },
+    { name: '余乐', profile: '男 / 13岁', feature: '穿红色校服', place: '云南宣威市', time: '2023年6月走失' }
+  ]
 };
 
 function pick(arr) {
@@ -74,10 +126,49 @@ function pick(arr) {
 const INTENTS = [
   { id: 'greeting', patterns: [/你好/, /您好/, /嗨/, /哈喽/, /hello/, /hi/, /在吗/], reply: () => pick(greetingMessages) },
   { id: 'thanks', patterns: [/谢谢/, /感谢/, /辛苦了/, /多谢/], reply: () => pick(['不客气！很高兴能为您介绍茯忆长安团队~', '别客气，随时找我~', '不客气，希望能帮到您！']) },
-  { id: 'help', patterns: [/你能做什么/, /帮助/, /会什么/, /功能/, /怎么用/], reply: '我可以为您介绍：团队与成员、智能发花设备、核心技术、发花工艺、项目成效、助农、公益寻人、联系方式等。您想了解哪方面？' },
-  { id: 'who', patterns: [/你是谁/, /你叫什么/, /自我介绍/], reply: '我是 AI小茯，茯忆长安团队的智能问答助手~ 我熟悉我们的团队、产品与技术，随时为您解答！' },
+  /* /怎么用/ 收窄为「怎么用你」，否则会截走「溯源系统怎么用」这类内容型提问 */
+  { id: 'help', patterns: [/你能做什么/, /帮助/, /会什么/, /功能/, /怎么用你/, /你怎么用/, /如何使用你/], reply:'我可以为您介绍：团队与成员、指导老师、行业痛点、智能发花设备、核心技术、发花工艺、核心价值、项目成效、助农、公益寻人、溯源与关注渠道、联系方式等。您想了解哪方面？' },
+  { id: 'who', patterns: [/你是谁/, /你叫什么/, /自我介绍/, /小茯/], reply: '我是 AI小茯，茯忆长安团队的智能问答助手~ 我熟悉我们的团队、产品与技术，随时为您解答！' },
+  {
+    /* 必须排在 teamName（/叫什么/、/名字/）与 members、teamIntro 之前，否则「指导老师叫什么」会被误匹配 */
+    id: 'advisors', patterns: [/指导老师/, /指导教师/, /带队老师/, /导师/, /老师/, /教授/],
+    reply: () => '我们的指导老师共 ' + teamInfo.advisors.length + ' 位：\n\n' +
+      teamInfo.advisors.map(n => '· ' + n).join('\n') +
+      '\n\n各位老师在产业调研、工艺研究、设备研发与项目申报等方面为团队提供了全程指导。'
+  },
   { id: 'teamName', patterns: [/团队名称/, /叫什么/, /名字/], reply: '我们的团队名称是【茯忆长安】，寓意像茯苓一样温润滋养，又承载着长安的文化底蕴~' },
   { id: 'vision', patterns: [/愿景/, /使命/, /目标/, /理念/], reply: () => '**愿景**：' + teamInfo.vision + '\n\n**使命**：' + teamInfo.mission },
+  { id: 'competition', patterns: [/挑战杯/, /赛道/, /参赛/, /比赛/, /竞赛/], reply: () => '我们参加的是**' + projectFacts.positioning.competition + '**。\n\n' + projectFacts.positioning.teamStatus + '。' },
+  { id: 'slogan', patterns: [/口号/, /标语/, /slogan/, /定位/, /硒望/], reply: () => '我们的项目主张是：**' + projectFacts.positioning.slogan + '**。\n\n' + projectFacts.positioning.tagline + '。\n\n' + projectFacts.positioning.intro },
+  {
+    /* 排在 tech / product 之前，保证「传统发花有什么痛点」不会被技术类意图截走 */
+    id: 'painPoints', patterns: [/痛点/, /之困/, /难题/, /瓶颈/, /传统发花/, /传统工艺/, /行业问题/, /什么困难/],
+    reply: () => '**传统发花之困**：\n' + projectFacts.painPoints.map(p => '· ' + p).join('\n') +
+      '\n\n**智能发花之解**：\n' + projectFacts.solutions.map(s => '· ' + s).join('\n')
+  },
+  {
+    id: 'values', patterns: [/核心价值/, /价值/, /创新/, /优势/, /亮点/],
+    reply: () => '我们的核心价值与创新：\n\n' + projectFacts.values.map(v => '**' + v.title + '**\n' + v.desc).join('\n\n')
+  },
+  {
+    /* 必须排在 projects（/项目/）之前，否则「项目成效」会被误判为项目介绍 */
+    id: 'stats', patterns: [/成效/, /数据/, /成功率/, /增收/, /岗位/, /效率/, /指标/],
+    reply: () => '我们的项目成效：\n\n' + projectFacts.stats.map(s => '· **' + s.value + '** — ' + s.label).join('\n')
+  },
+  { id: 'rural', patterns: [/助农/, /乡村振兴/, /农户/, /联农/], reply: () => projectFacts.rural },
+  {
+    id: 'welfare', patterns: [/公益/, /寻人/, /失踪/, /寻亲/, /儿童/, /孩子/],
+    reply: () => projectFacts.welfare + '\n\n目前官网「公益寻人」区展示的孩子有：\n\n' +
+      projectFacts.missingChildren.map((c, i) => (i + 1) + '. **' + c.name + '** ｜ ' + c.profile + ' ｜ ' + c.feature + '\n   ' + c.place + '，' + c.time).join('\n') +
+      '\n\n如有线索，请及时联系当地公安机关。'
+  },
+  { id: 'trace', patterns: [/溯源/, /追溯/, /区块链/, /扫码/], reply: () => '**' + teamInfo.projects[2].name + '**：\n\n' + teamInfo.projects[2].description },
+  { id: 'channels', patterns: [/抖音/, /小程序/, /公众号/, /二维码/, /新媒体/, /关注你们/, /社交媒体/], reply: () => '欢迎通过以下渠道关注我们：\n\n' + projectFacts.channels.map(c => '· ' + c).join('\n') + '\n\n以上二维码都可以在官网页脚「关注我们」处扫码。' },
+  { id: 'selenium', patterns: [/富硒/, /硒/], reply: '富硒茯茶的关键在于硒元素含量的稳定可控。我们的红外光谱模块可实时监测发酵过程中茶叶的硒含量与发酵状态，保证营养价值；配合 AI 视觉监测金花生长，实现精准智控。' },
+  { id: 'tech', patterns: [/技术/, /ai/, /视觉/, /红外/, /光谱/, /5g/, /物联网/, /识别/], reply: () => '我们的核心技术包括：\n\n' + projectFacts.tech.map((t, i) => (i + 1) + '. ' + t).join('\n') },
+  { id: 'process', patterns: [/工艺/, /流程/, /步骤/, /怎么做/, /发花过程/], reply: () => '富硒茯茶发花工艺大致分五步：\n\n' + projectFacts.process.map((s, i) => (i + 1) + '. ' + s).join('\n') },
+  { id: 'iteration', patterns: [/迭代/, /历程/, /研发多久/, /研发了多久/, /几代/], reply: () => projectFacts.iteration },
+  { id: 'product', patterns: [/设备/, /发花机/, /产品/, /装置/, /机器/], reply: () => '我们的核心产品是**' + teamInfo.projects[0].name + '**：\n\n' + teamInfo.projects[0].description },
   {
     id: 'members', patterns: [/成员/, /创始人/, /都有谁/, /谁负责/],
     reply: () => {
@@ -102,16 +193,6 @@ const INTENTS = [
       return r;
     }
   },
-  {
-    id: 'stats', patterns: [/成效/, /数据/, /成功率/, /增收/, /岗位/, /效率/, /指标/],
-    reply: () => '我们的项目成效：\n\n' + projectFacts.stats.map(s => '· **' + s.value + '** — ' + s.label).join('\n')
-  },
-  { id: 'product', patterns: [/设备/, /发花机/, /产品/, /装置/, /机器/], reply: () => '我们的核心产品是**' + teamInfo.projects[0].name + '**：\n\n' + teamInfo.projects[0].description },
-  { id: 'selenium', patterns: [/富硒/, /硒/], reply: '富硒茯茶的关键在于硒元素含量的稳定可控。我们的红外光谱模块可实时监测发酵过程中茶叶的硒含量与发酵状态，保证营养价值；配合 AI 视觉监测金花生长，实现精准智控。' },
-  { id: 'tech', patterns: [/技术/, /ai/, /视觉/, /红外/, /光谱/, /5g/, /物联网/, /识别/], reply: () => '我们的核心技术包括：\n\n' + projectFacts.tech.map((t, i) => (i + 1) + '. ' + t).join('\n') },
-  { id: 'process', patterns: [/工艺/, /流程/, /步骤/, /怎么做/, /发花过程/], reply: () => '富硒茯茶发花工艺大致分五步：\n\n' + projectFacts.process.map((s, i) => (i + 1) + '. ' + s).join('\n') },
-  { id: 'rural', patterns: [/助农/, /乡村振兴/, /农户/, /联农/], reply: () => projectFacts.rural },
-  { id: 'welfare', patterns: [/公益/, /寻人/, /失踪/, /寻亲/], reply: () => projectFacts.welfare },
   { id: 'teamIntro', patterns: [/介绍/, /团队/, /业务/, /主营/], reply: () => teamInfo.description + '\n\n我们的使命：' + teamInfo.mission },
   { id: 'contact', patterns: [/联系/, /联系方式/, /地址/, /电话/, /邮箱/], reply: () => '您可以通过以下方式联系我们：\n\n**邮箱**：' + teamInfo.contact.email + '\n**电话**：' + teamInfo.contact.phone + '\n**官网**：' + teamInfo.contact.website + '\n**地址**：' + teamInfo.contact.location }
 ];

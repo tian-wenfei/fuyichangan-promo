@@ -28,8 +28,8 @@ Must be served over HTTP, not `file://` (the CCTV-hosted missing-children images
 
 The bot is **rule-based, not an LLM** — no API or backend.
 
-- `teamInfo` / `projectFacts` / `greetingMessages` — the single source of content (7 team members, 3 projects, process steps, stats, contact).
-- `INTENTS` — an ordered array of `{ patterns: RegExp[], reply: string | () => string }`. Order matters: specific intents come before general ones (e.g. `stats`/`rural`/`tech`/`process` are before the broad `projects`/`teamIntro`), to correctly disambiguate compounds like "项目成效".
+- `teamInfo` / `projectFacts` / `greetingMessages` — the single source of content (8 team members, 6 advisors, 3 projects, process steps, stats, pain points, core values, positioning, channels, the 8 missing-children records, contact). Everything here mirrors a section of `index.html` — keep the two in sync.
+- `INTENTS` — an ordered array of `{ patterns: RegExp[], reply: string | () => string }`. Order matters: specific intents come before general ones (e.g. `stats`/`rural`/`tech`/`process` are before the broad `projects`/`teamIntro`), to correctly disambiguate compounds like "项目成效". Two ordering traps already fixed — keep them that way: `advisors` must precede `teamName` (whose `/叫什么/` would otherwise swallow "指导老师叫什么"), and `help`'s patterns are deliberately narrowed to `/怎么用你/` rather than `/怎么用/` (which would swallow "溯源系统怎么用").
 - `normalize()` + `generateResponse()` — lowercase, strip whitespace/punctuation, then match the first intent whose pattern hits; fallback suggests topics.
 - `startRecognition` / `speak` — thin wrappers over `webkitSpeechRecognition` and `speechSynthesis`. The recognition wrapper keeps silence-timeout, network-retry, and an instance-id guard against stale results — port carefully if touching it.
 - `initChat()` is lazily called on the first click of the `#aiFab` floating button; it wires DOM events and renders the welcome message + quick questions.
@@ -38,10 +38,12 @@ The bot is **rule-based, not an LLM** — no API or backend.
 
 - The chatbot renders **inline** in the `.ai-panel` slide-in drawer (opened by `#aiFab`). There is no iframe. The panel-open/close logic lives in `index.html`; the chat internals live in `chat.js`.
 - `chat.css` must stay scoped under `.ai-panel` and reuse `index.html`'s `:root` variables — do not add global `body`/`#root` rules or new color variables, or it will clash with the landing page.
-- The landing page's team section and the bot's `teamInfo.members` are **the same 7 people** (朱晨雨、贾博涵、李青清、冯毅、田文飞、杨晨曦、李思涵). Keep them in sync if either changes.
+- The landing page's team section, the bot's `teamInfo.members`, and `README.md`'s team table are **the same 8 people** (朱晨雨、王奕裴、贾博涵、李青清、冯毅、田文飞、杨晨曦、李思涵). Keep all three in sync if any changes.
+- The 6 指导老师 (李华君、王云鹤、靳谐美、李万华、宁国良、时春喜) live in `teamInfo.advisors` and `README.md`; they are **not** shown on the landing page.
 
 ## Conventions & gotchas
 
 - Landing-page asset filenames are in Chinese (`2.0发花设备.png`, `微信小程序.jpg`, `茶叶追溯系统.png`) — reference them exactly.
 - The landing page's inline JS (scroll spy, counters, video modal, FAB panel) and `chat.js` both register a click handler on `#aiFab`; that's intentional (one opens the drawer, the other lazy-inits the chat).
 - No external dependencies except Font Awesome 6.4.0 (CDN) and CCTV-hosted missing-children images.
+- 能耗 appears with **two different figures on purpose**: 24% in `teamInfo.projects[0]` (陕南试点实测口径) and 12% in `projectFacts.values` / `index.html` `#value` (全产业口径). They are not a typo — do not "unify" them.
