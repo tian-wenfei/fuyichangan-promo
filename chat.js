@@ -97,7 +97,7 @@ const projectFacts = {
   positioning: {
     slogan: '从「经验发花」到「智能发花」的硒望茶机',
     tagline: '富硒茯茶金花智控设备，助农增收新引擎',
-    competition: '挑战杯 · 现代农业与食品科技赛道',
+    competition: '中国国际大学生创新大赛 · 高教主赛道 · 创意组',
     teamStatus: '参赛团队：茯忆长安（已创业）',
     intro: '致力于成为茶行业智能化革命的重要参与者，以科技创新守护中国茶文化的世界竞争力。'
   },
@@ -138,7 +138,7 @@ const INTENTS = [
   },
   { id: 'teamName', patterns: [/团队名称/, /叫什么/, /名字/], reply: '我们的团队名称是【茯忆长安】，寓意像茯苓一样温润滋养，又承载着长安的文化底蕴~' },
   { id: 'vision', patterns: [/愿景/, /使命/, /目标/, /理念/], reply: () => '**愿景**：' + teamInfo.vision + '\n\n**使命**：' + teamInfo.mission },
-  { id: 'competition', patterns: [/挑战杯/, /赛道/, /参赛/, /比赛/, /竞赛/], reply: () => '我们参加的是**' + projectFacts.positioning.competition + '**。\n\n' + projectFacts.positioning.teamStatus + '。' },
+  { id: 'competition', patterns: [/创新大赛/, /互联网\+/, /高教主赛道/, /创意组/, /赛道/, /参赛/, /比赛/, /竞赛/, /挑战杯/], reply: () => '我们参加的是**' + projectFacts.positioning.competition + '**。\n\n' + projectFacts.positioning.teamStatus + '。' },
   { id: 'slogan', patterns: [/口号/, /标语/, /slogan/, /定位/, /硒望/], reply: () => '我们的项目主张是：**' + projectFacts.positioning.slogan + '**。\n\n' + projectFacts.positioning.tagline + '。\n\n' + projectFacts.positioning.intro },
   {
     /* 排在 tech / product 之前，保证「传统发花有什么痛点」不会被技术类意图截走 */

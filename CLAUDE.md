@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## What this is
 
-Promotional website for "茯忆长安" (Fuyi Chang'an), a university competition project (挑战杯 · 现代农业与食品科技赛道) promoting an AI-powered selenium-rich Fucha (茯茶) fermentation device. Content is Chinese; code comments are Chinese.
+Promotional website for "茯忆长安" (Fuyi Chang'an), a university competition project (中国国际大学生创新大赛 · 高教主赛道 · 创意组) promoting an AI-powered selenium-rich Fucha (茯茶) fermentation device. Content is Chinese; code comments are Chinese.
 
 The project is a **single static site with no build step** — no framework, no npm, no bundler. Three code files:
 
