@@ -25,8 +25,8 @@
     <link rel="dns-prefetch" href="https://p4.img.cctvpic.com">
 
     <link rel="preload" href="logo.png" as="image" fetchpriority="high">
-    <link rel="preload" href="home.jpg" as="image" fetchpriority="high">
-    <link rel="preload" href="2.0发花设备.png" as="image" fetchpriority="high">
+    <link rel="preload" href="home.webp" as="image" fetchpriority="high">
+    <link rel="preload" href="2.0发花设备.webp" as="image" fetchpriority="high">
     <link rel="prefetch" href="douyin.png" as="image">
     <link rel="prefetch" href="微信小程序.jpg" as="image">
     <link rel="prefetch" href="茶叶追溯系统.png" as="image">
@@ -157,7 +157,7 @@
             position: relative;
             padding: 128px 0 80px;
             overflow: hidden;
-            background: linear-gradient(rgba(247, 241, 228, 0.92), rgba(247, 241, 228, 0.72)), url('home.jpg') center/cover no-repeat;
+            background: linear-gradient(rgba(247, 241, 228, 0.92), rgba(247, 241, 228, 0.72)), url('home.webp') center/cover no-repeat;
         }
         .hero-inner {
             max-width: 1180px; margin: 0 auto; padding: 0 24px;
@@ -475,7 +475,7 @@
                 </div>
             </div>
             <div class="hero-figure fade-in">
-                <img src="2.0发花设备.png" alt="智能发花机2.0产品图" loading="eager" decoding="async" fetchpriority="high">
+                <img src="2.0发花设备.webp" alt="智能发花机2.0产品图" width="1280" height="1086" loading="eager" decoding="async" fetchpriority="high">
                 <div class="hero-badge">
                     <strong>98.6%</strong>
                     <span>发花成功率</span>
@@ -541,7 +541,7 @@
             <h2 class="section-title fade-in">智能发花机 2.0</h2>
             <div class="product-container">
                 <div class="product-image fade-in">
-                    <img src="2.0发花设备.png" alt="智能发花机2.0产品图" loading="lazy" decoding="async">
+                    <img src="2.0发花设备.webp" alt="智能发花机2.0产品图" width="1280" height="1086" loading="lazy" decoding="async">
                 </div>
                 <div class="product-info fade-in delay-1">
                     <h3>智能化发花装置 2.0</h3>
@@ -919,19 +919,19 @@
                     <div class="qr-wrapper">
                         <div class="qr-item">
                             <div class="qr-code">
-                                <img src="douyin.png" alt="抖音二维码" loading="lazy" decoding="async" onerror="this.style.display='none'">
+                                <img src="douyin.png" alt="抖音二维码" width="192" height="192" loading="lazy" decoding="async" onerror="this.style.display='none'">
                             </div>
                             <p>抖音二维码</p>
                         </div>
                         <div class="qr-item">
                             <div class="qr-code">
-                                <img src="茶叶追溯系统.png" alt="茶叶追溯系统" loading="lazy" decoding="async" onerror="this.style.display='none'">
+                                <img src="茶叶追溯系统.png" alt="茶叶追溯系统" width="192" height="192" loading="lazy" decoding="async" onerror="this.style.display='none'">
                             </div>
                             <p>茶叶追溯系统</p>
                         </div>
                         <div class="qr-item">
                             <div class="qr-code">
-                                <img src="微信小程序.jpg" alt="微信小程序" loading="lazy" decoding="async" onerror="this.style.display='none'">
+                                <img src="微信小程序.jpg" alt="微信小程序" width="192" height="192" loading="lazy" decoding="async" onerror="this.style.display='none'">
                             </div>
                             <p>微信小程序</p>
                         </div>
@@ -950,7 +950,7 @@
     </button>
 
     <button id="aiFab" class="ai-fab" aria-label="打开AI小茯助手" title="AI小茯 - 智能问答助手">
-        <img src="AI小茯.png" alt="AI小茯" loading="lazy">
+        <img src="AI小茯.webp" alt="AI小茯" width="280" height="280" loading="lazy">
         <span class="ai-tooltip">AI小茯 · 智能问答</span>
     </button>
 
@@ -1156,7 +1156,7 @@
                 <i class="fas fa-times"></i>
             </button>
             <video id="promoVideo" preload="none" controls>
-                <source src="宣传视频.mp4" type="video/mp4">
+                <source src="模型展示.mp4" type="video/mp4">
                 您的浏览器不支持视频播放
             </video>
         </div>
@@ -1166,7 +1166,7 @@
         function openVideoModal() {
             const modal = document.getElementById('videoModal');
             const video = document.getElementById('promoVideo');
-            video.src = '宣传视频.mp4';
+            video.src = '模型展示.mp4';
             video.currentTime = 0;
             modal.classList.add('active');
             video.play();

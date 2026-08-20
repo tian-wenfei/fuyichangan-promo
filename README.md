@@ -60,9 +60,9 @@ fuyichangan-promo/
 ├── index.html            ← 主页面（落地页 + 内嵌 AI小茯 面板）
 ├── chat.css              ← 聊天面板样式
 ├── chat.js               ← 聊天逻辑 + 语音 + UI（原生 JS）
-├── logo.png / home.jpg   ← Logo / 首屏背景
-├── 2.0发花设备.png         ← 产品图
-├── AI小茯.png             ← 助手头像
+├── logo.png / home.webp  ← Logo / 首屏背景
+├── 2.0发花设备.webp        ← 产品图
+├── AI小茯.webp            ← 助手头像
 ├── douyin.png             ← 抖音二维码
 ├── 微信小程序.jpg          ← 小程序码
 ├── 茶叶追溯系统.png        ← 溯源系统码
